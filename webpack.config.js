@@ -1,8 +1,15 @@
-const path = require('path');
+var path = require("path");
 
 module.exports = {
-	module: {
-		rules: [
+    mode: "production",
+    entry: "./src/index.js",
+    output: {
+        path: path.resolve("build"),
+        filename: "index.js",
+        libraryTarget: "commonjs2"
+    },
+    module: {
+        rules: [
 			{
 				test: /\.s[ac]ss$/i,
 				use: [
@@ -20,8 +27,8 @@ module.exports = {
 				use: ['babel-loader'],
 			},
 		],
-	},
-	resolve: {
-		extensions: ['*', '.js', '.jsx'],
-	},
+    },
+    externals: {
+        react: "react"
+    }
 };
