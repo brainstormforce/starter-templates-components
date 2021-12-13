@@ -1,7 +1,7 @@
 {
   "name": "starter-templates-components",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "./build/index.js",
   "author": "Brainstorm Force",
   "description": "Starter Templates Component Library.",
   "scripts": {
