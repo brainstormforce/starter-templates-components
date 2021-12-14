@@ -8,4 +8,4 @@ export {
 	Tooltip,
 	SuggestionList,
 	Toaster
-}  from './src/index.js';
+} from './src/index.js';
