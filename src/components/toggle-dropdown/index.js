@@ -3,7 +3,7 @@ import React, { useEffect, useState, forwardRef } from 'react';
 
 // Internal Dependencies.
 import './style.scss';
-import { Logo } from '../index';
+import Logo from '../logo';
 import { ICONS } from '../icons';
 
 const ToggleDropdown = forwardRef(

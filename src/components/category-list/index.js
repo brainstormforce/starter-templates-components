@@ -5,7 +5,7 @@ import { decodeEntities } from '@wordpress/html-entities';
 
 // Internal Dependencies.
 import './style.scss';
-import { ToggleDropdown } from '..';
+import ToggleDropdown from '../toggle-dropdown';
 
 const CategoryList = ( { options, value, onClick, limit } ) => {
 	let initialActive = '';
