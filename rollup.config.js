@@ -4,6 +4,7 @@ import postcss from "rollup-plugin-postcss";
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
+import excludeDependenciesFromBundle from "rollup-plugin-exclude-dependencies-from-bundle";
 
 const packageJson = require("./package.json");
 
@@ -23,6 +24,7 @@ export default [
       },
     ],
     plugins: [
+        excludeDependenciesFromBundle(),
         postcss({
             plugins: [],
             minimize: true,
