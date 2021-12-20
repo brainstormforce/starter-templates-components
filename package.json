@@ -9,7 +9,10 @@
   "author": "Brainstorm Force",
   "description": "Starter Templates Component Library.",
   "scripts": {
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "lint:js:fix": "wp-scripts lint-js --fix"
   },
   "keywords": [
     "reactjs",
@@ -26,9 +29,12 @@
     "@babel/preset-react": "^7.16.5",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
+    "@wordpress/eslint-plugin": "^9.3.0",
+    "@wordpress/scripts": "^19.2.2",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.5.1",
     "html-webpack-plugin": "^5.5.0",
+    "prettier": "npm:wp-prettier@^2.2.1-beta-1",
     "react": "^17.0.2",
     "react-dom": "^17.0.1",
     "rollup": "^2.60.0",
