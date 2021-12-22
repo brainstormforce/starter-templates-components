@@ -1,15 +1,45 @@
 // External Dependencies.
-import React, { memo } from 'react';
+import React, { memo, useEffect, useCallback } from 'react';
 import { __ } from '@wordpress/i18n';
+import { useDebouncedCallback } from 'use-debounce';
 
 // Internal Dependencies.
 import './style.scss';
 import { ICONS } from '../icons';
 
-const Search = ( { onSearch, value, placeholder, onKeyUp } ) => {
+const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, placeholder, onKeyUp } ) => {
 	const searchPlaceholder = placeholder
 		? placeholder
 		: __( 'Search..', 'astra-sites' );
+
+	const debounced = useDebouncedCallback(
+		// to memoize debouncedFunction we use useCallback hook.
+		// In this case all linters work correctly
+		useCallback( ( value ) => {
+
+			if( typeof beforeSearchResult === 'function' ) {
+				console.log( 'beforeSearchResult' );
+				beforeSearchResult();
+			}
+
+			fetch( apiUrl )
+			.then( ( res ) => res.json() )
+			.then( ( response ) => {
+				if( typeof onSearchResult === 'function' ) {
+					onSearchResult( response, value );
+				}
+			} );
+		}, [] ),
+		300,
+		// The maximum time func is allowed to be delayed before it's invoked:
+		{ maxWait: 2000 }
+	);
+
+	useEffect( () => {
+		if( apiUrl ) {
+			debounced( value );
+		}
+	}, [ value ] );
 
 	return (
 		<div
