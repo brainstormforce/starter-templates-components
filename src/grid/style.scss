@@ -1,5 +1,6 @@
 // Core CSS.
 @import url('../style.scss');
+@import '../animations.scss';
 
 .stc-grid-wrap {
 	display: grid;
@@ -47,8 +48,8 @@
 	cursor: pointer;
 
 	&:hover {
-		.stc-grid-item-hover-button {
-			animation: visible 0.2s linear forwards;
+		.stc-grid-item-hover-button-wrap {
+			animation: stc-visible 0.2s linear forwards;
 		}
 	}
 }
@@ -117,7 +118,7 @@
 	}
 }
 
-.stc-grid-item-hover-button {
+.stc-grid-item-hover-button-wrap {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -128,21 +129,19 @@
 	height: auto;
 	visibility: hidden;
 	opacity: 0;
-	> button {
-		padding: 7px 25px;
-		background: var(--stc-color-accent);
-		&:hover {
-			background: var(--stc-color-accent-hover);
-		}
-	}
 }
 
-@keyframes visible {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-		visibility: visible;
+.stc-grid-item-hover-button {
+	padding: 7px 25px;
+	background: var(--stc-color-accent);
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--stc-color-white);
+	line-height: 24px;
+	text-decoration: none !important;
+	border-radius: var(--stc-border-radius-2);
+	&:hover {
+		background: var(--stc-color-accent-hover);
+		color: var(--stc-color-white);
 	}
 }

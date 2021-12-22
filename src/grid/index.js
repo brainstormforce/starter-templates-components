@@ -17,7 +17,6 @@ const Grid = ( {
 	hasFavorite,
 	onFavoriteClick,
 	favoriteList,
-	hasHoverButton,
 	buttonLabel,
 } ) => {
 	if ( ! options.length ) {
@@ -65,9 +64,15 @@ const Grid = ( {
 									{ decodeEntities( item.title ) }
 								</div>
 
-								{ hasHoverButton ? (
-									<div className="stc-grid-item-hover-button">
-										<button>{ buttonLabel }</button>
+								{ !! item?.link ? (
+									<div className="stc-grid-item-hover-button-wrap">
+										<a 
+											className="stc-grid-item-hover-button"
+											href={item.link}
+											target="_blank"
+										>
+											{ buttonLabel }
+										</a>
 									</div>
 								) : null }
 
