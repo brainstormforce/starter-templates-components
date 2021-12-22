@@ -17,6 +17,8 @@ const Grid = ( {
 	hasFavorite,
 	onFavoriteClick,
 	favoriteList,
+	hasHoverButton,
+	buttonLabel,
 } ) => {
 	if ( ! options.length ) {
 		return '';
@@ -62,6 +64,12 @@ const Grid = ( {
 								<div className="stc-grid-item-title">
 									{ decodeEntities( item.title ) }
 								</div>
+
+								{ hasHoverButton ? (
+									<div className="stc-grid-item-hover-button">
+										<button>{ buttonLabel }</button>
+									</div>
+								) : null }
 
 								{ hasFavorite ? (
 									<Tooltip
