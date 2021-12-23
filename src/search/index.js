@@ -18,7 +18,6 @@ const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, 
 		useCallback( ( value ) => {
 
 			if( typeof beforeSearchResult === 'function' ) {
-				console.log( 'beforeSearchResult' );
 				beforeSearchResult();
 			}
 
