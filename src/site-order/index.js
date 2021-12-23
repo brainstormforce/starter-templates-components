@@ -10,11 +10,11 @@ const SiteOrder = ({ value, onClick }) => {
 			options={[
 				{
 					id: 'popular',
-					title: __('Popular', 'astra-sites'),
+					title: __('Popular' ),
 				},
 				{
 					id: 'latest',
-					title: __('Latest', 'astra-sites'),
+					title: __('Latest' ),
 				},
 			]}
 			onClick={(event, order) => {

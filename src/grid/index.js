@@ -81,8 +81,7 @@ const Grid = ( {
 										content={ `${
 											! isFavorite
 												? __(
-														'Add to favorites',
-														'astra-sites'
+														'Add to favorites'
 												  )
 												: ''
 										}` }

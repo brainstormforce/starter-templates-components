@@ -79,7 +79,7 @@ const CategoryList = ( { options, value, onClick, limit } ) => {
 							onToggle={ ( event, newToggle ) => {
 								setShowMore( newToggle );
 							} }
-							label={ __( 'More', 'astra-sites' ) }
+							label={ __( 'More' ) }
 							value={ activeItem }
 							options={ more }
 							onClick={ ( event, option ) => {
@@ -90,7 +90,7 @@ const CategoryList = ( { options, value, onClick, limit } ) => {
 					) : null }
 				</>
 			) : (
-				<span>{ __( 'No Categories', 'astra-sites' ) }</span>
+				<span>{ __( 'No Categories' ) }</span>
 			) }
 		</div>
 	);

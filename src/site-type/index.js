@@ -11,11 +11,11 @@ const SiteType = ({ value, onClick }) => {
 			options={[
 				{
 					id: '',
-					title: __('All', 'astra-sites'),
+					title: __('All'),
 				},
 				{
 					id: 'agency-mini',
-					title: __('Premium', 'astra-sites'),
+					title: __('Premium'),
 				},
 			]}
 			onClick={(event, type) => {

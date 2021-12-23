@@ -18,8 +18,7 @@ const NoResultFound = ({searchTerm}) => {
 				{sprintf(
 					/* translators: %1$s - search term. */
 					__(
-						'Your search - %1$s - did not match any Starter Templates.',
-						'astra-sites-showcase'
+						'Your search - %1$s - did not match any Starter Templates.'
 					),
 					decodeEntities(searchTerm)
 				)}
