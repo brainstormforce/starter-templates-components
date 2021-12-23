@@ -9,7 +9,7 @@ import { ICONS } from '../icons';
 const Search = ( { onSearch, value, placeholder, onKeyUp } ) => {
 	const searchPlaceholder = placeholder
 		? placeholder
-		: __( 'Search..', 'astra-sites' );
+		: __( 'Search..' );
 
 	return (
 		<div
