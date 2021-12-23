@@ -16,7 +16,6 @@ const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, 
 		// to memoize debouncedFunction we use useCallback hook.
 		// In this case all linters work correctly
 		useCallback( ( value ) => {
-
 			if( typeof beforeSearchResult === 'function' ) {
 				beforeSearchResult();
 			}
@@ -28,7 +27,7 @@ const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, 
 					onSearchResult( response, value );
 				}
 			} );
-		}, [] ),
+		}, [ value ] ),
 		300,
 		// The maximum time func is allowed to be delayed before it's invoked:
 		{ maxWait: 2000 }
