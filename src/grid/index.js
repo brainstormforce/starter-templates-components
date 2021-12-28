@@ -17,6 +17,7 @@ const Grid = ( {
 	hasFavorite,
 	onFavoriteClick,
 	favoriteList,
+	buttonLabel,
 } ) => {
 	if ( ! options.length ) {
 		return '';
@@ -63,13 +64,24 @@ const Grid = ( {
 									{ decodeEntities( item.title ) }
 								</div>
 
+								{ !! item?.link ? (
+									<div className="stc-grid-item-hover-button-wrap">
+										<a 
+											className="stc-grid-item-hover-button"
+											href={item.link}
+											target="_blank"
+										>
+											{ buttonLabel }
+										</a>
+									</div>
+								) : null }
+
 								{ hasFavorite ? (
 									<Tooltip
 										content={ `${
 											! isFavorite
 												? __(
-														'Add to favorites',
-														'astra-sites'
+														'Add to favorites'
 												  )
 												: ''
 										}` }

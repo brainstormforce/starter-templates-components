@@ -10,7 +10,7 @@ import { ICONS } from '../icons';
 const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, placeholder, onKeyUp } ) => {
 	const searchPlaceholder = placeholder
 		? placeholder
-		: __( 'Search..', 'astra-sites' );
+		: __( 'Search..' );
 
 	const debounced = useDebouncedCallback(
 		// to memoize debouncedFunction we use useCallback hook.
