@@ -11,4 +11,5 @@ export {
 	SiteOrder,
 	SiteType,
 	NoResultFound,
+	MegaMenu,
 } from './src/index.js';
