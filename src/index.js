@@ -10,6 +10,7 @@ import Toaster from './toaster';
 import SiteOrder from './site-order';
 import SiteType from './site-type';
 import NoResultFound from './no-result-found';
+import PremiumBadge from './premium-badge';
 
 export {
 	Button,
@@ -24,4 +25,5 @@ export {
 	SiteOrder,
 	SiteType,
 	NoResultFound,
+	PremiumBadge,
 }
