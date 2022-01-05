@@ -1,17 +1,24 @@
-var path = require("path");
-
+const path = require('path');
 module.exports = {
-    mode: "production",
-    entry: "./src/index.js",
+    mode: 'production',
+    entry: './src/index.js',
     output: {
-        path: path.resolve("build"),
-        filename: "index.js",
-        libraryTarget: "commonjs2"
+        path: path.resolve(__dirname, 'build'),
+        filename: 'index.js',
     },
     module: {
         rules: [
-			{
-				test: /\.s[ac]ss$/i,
+            {
+                test: /\.js$/i,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                    },
+                },
+            },
+            {
+                test: /\.scss$/i,
 				use: [
 					// Creates `style` nodes from JS strings
 					'style-loader',
@@ -20,15 +27,15 @@ module.exports = {
 					// Compiles Sass to CSS
 					'sass-loader',
 				],
-			},
-			{
-				test: /\.(js|jsx)$/,
-				exclude: /node_modules/,
-				use: ['babel-loader'],
-			},
-		],
-    },
-    externals: {
-        react: "react"
+            },
+            {
+                test: /\.css$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader'
+                ],
+            },
+        ],
     }
 };
