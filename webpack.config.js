@@ -18,6 +18,14 @@ module.exports = {
                 },
             },
             {
+                test: /\.css$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader'
+                ],
+            },
+            {
                 test: /\.scss$/i,
 				use: [
 					// Creates `style` nodes from JS strings
@@ -27,14 +35,6 @@ module.exports = {
 					// Compiles Sass to CSS
 					'sass-loader',
 				],
-            },
-            {
-                test: /\.css$/i,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'postcss-loader'
-                ],
             },
         ],
     }
