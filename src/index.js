@@ -11,6 +11,7 @@ import SiteOrder from './site-order';
 import SiteType from './site-type';
 import NoResultFound from './no-result-found';
 import MegaMenu from './mega-menu';
+import PremiumBadge from './premium-badge';
 
 export {
 	Button,
@@ -26,4 +27,5 @@ export {
 	SiteType,
 	NoResultFound,
 	MegaMenu,
+	PremiumBadge,
 }
