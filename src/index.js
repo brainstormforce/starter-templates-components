@@ -12,6 +12,7 @@ import SiteType from './site-type';
 import NoResultFound from './no-result-found';
 import MegaMenu from './mega-menu';
 import PremiumBadge from './premium-badge';
+import './tailwind.css';
 
 export {
 	Button,

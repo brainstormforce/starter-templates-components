@@ -12,4 +12,5 @@ export {
 	SiteType,
 	NoResultFound,
 	MegaMenu,
+	PremiumBadge,
 } from './src/index.js';

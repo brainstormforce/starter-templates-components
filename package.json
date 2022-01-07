@@ -5,7 +5,7 @@
   "description": "Starter Templates Component Library.",
   "main": "./index.js",
   "scripts": {
-    "start": "npm run tailwind:watch && webpack --watch --mode development",
+    "start": "webpack serve --mode=development --open",
     "build": "webpack --mode production",
     "tailwind:watch": "npx tailwindcss -i ./src/style.css -o ./src/tailwind.css --watch"
   },
@@ -31,7 +31,8 @@
     "style-loader": "^3.3.1",
     "tailwindcss": "^3.0.10",
     "webpack": "^5.65.0",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2"
   },
   "dependencies": {
     "@wordpress/html-entities": "^3.2.3",

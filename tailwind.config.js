@@ -2,6 +2,7 @@ module.exports = {
 	enabled: true,
 	mode: 'jit',
 	purge: [
+		'./dist/*.html',
 		'./src/*.js',
 		'./src/**/*.js',
 	],

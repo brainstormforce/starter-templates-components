@@ -1,7 +1,10 @@
 const path = require('path');
 module.exports = {
     mode: 'production',
-    entry: './src/index.js',
+    entry: [
+        './src/index.js',
+        './src/tailwind.css',
+    ],
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'index.js',
@@ -37,5 +40,12 @@ module.exports = {
 				],
             },
         ],
-    }
+    },
+    devServer: {
+        static: {
+          directory: path.join(__dirname, 'build/index.html'),
+        },
+        compress: true,
+        port: 9000,
+    },
 };
