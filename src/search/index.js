@@ -20,6 +20,12 @@ const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, 
 				beforeSearchResult();
 			}
 
+			// Avoid the API call if the value is empty.
+			if( ! value ) {
+				onSearchResult( {}, value );
+				return;
+			}
+
 			fetch( apiUrl )
 			.then( ( res ) => res.json() )
 			.then( ( response ) => {
