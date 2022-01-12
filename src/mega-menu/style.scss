@@ -1,7 +1,149 @@
-// Core CSS.
-@import url('../style.scss');
+.stc-mega-menu-wrap {
+    text-align: left;
+}
+
+.stc-mega-menu-toggle {
+    background: #FFFFFF;
+    border: 1px solid #D1D5DB;
+    box-sizing: border-box;
+    border-radius: 2px;
+    padding: 10px 13px;
+    fill: #6B7280;
+    cursor: pointer;
+    display: none;;
+}
 
 .stc-mega-menu {
+    display: flex;
     position: relative;
 }
 
+.stc-mega-menu-group {
+    position: absolute;
+    top: 100%;
+    background: #000;
+    width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    background: #FFFFFF;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 4px 4px;
+    padding: 14px 20px 20px 20px;
+    z-index: 9;
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    margin: var( --stc-mega-menu-group-margin, 0 );
+
+    &.stc-mega-menu-group-two-col {
+        width: 400px;
+    }
+}
+
+
+.stc-mega-menu-item {
+    position: relative;
+    white-space: nowrap;
+
+    &:hover > .stc-mega-menu-group {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &:last-child {
+        margin-right: 0;
+    }
+    
+}
+
+.stc-mega-menu-section-title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    color: #1F2937;
+    margin-bottom: 5px;
+}
+
+.stc-mega-menu-children {
+    color: #4B5563;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.stc-mega-menu-child-item {
+    margin-bottom: 3px;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--stc-color-accent-hover);
+    }
+}
+
+.stc-mega-menu-item:hover > .stc-mega-menu-item-title,
+.stc-mega-menu-item-active > .stc-mega-menu-item-title {
+    border-bottom-color: #1F2937;
+}
+
+.stc-mega-menu-item-title {
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    display: inline-block;
+    margin: var( --stc-mega-menu-item-title-margin, 0 20px 0 0 );
+    padding: var( --stc-mega-menu-item-title-padding, 0 0 20px 0 );
+}
+
+
+.stc-mega-menu-item-icon {
+    width: 10px;
+    height: 10px;
+    fill: #6B7280;
+    margin-left: 10px;
+}
+
+.stc-mega-menu-item-active .stc-mega-menu-item-icon {
+    fill: #1F2937;
+}
+
+@media (min-width: 768px) {
+    .stc-mega-menu-group-col-2,
+    .stc-mega-menu-group-col-3 {
+        width: 400px;
+
+        .stc-mega-menu-section {
+            width: 50%;
+        }
+
+        .stc-mega-menu-section:nth-child(1),
+        .stc-mega-menu-section:nth-child(2) {
+            padding-bottom: 15px;
+        }
+        
+        .stc-mega-menu-section:nth-child(1),
+        .stc-mega-menu-section:nth-child(3) {
+            border-right: 1px solid #E5E7EB;
+        }
+
+        .stc-mega-menu-section:nth-child(2),
+        .stc-mega-menu-section:nth-child(4) {
+            padding-left: 25px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .stc-mega-menu {
+        display: none;
+    }
+    .stc-mega-menu-show .stc-mega-menu {
+        display: flex;
+    }
+    .stc-mega-menu-toggle {
+        display: inline-block;
+    }
+    .stc-mega-menu-item-icon {
+        display: none;
+    }
+}
