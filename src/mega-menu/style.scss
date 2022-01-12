@@ -179,7 +179,7 @@
         background: var( --stc-color-white );
         box-shadow: 0 2px 4px -1px rgb(0 0 0 / 10%), 0 4px 6px rgb(0 0 0 / 10%);
         border-radius: 0 0 4px 4px;
-        padding: 20px ​40p;
+        padding: 20px 40px;
         position: absolute;
         left: 0;
         right: 0;
@@ -192,9 +192,5 @@
     .stc-mega-menu-section {
         width: 100%;
     }
-    
-    .st-other-filters {
-        position: relative;
-    }
-    
+
 }
