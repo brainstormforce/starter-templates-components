@@ -3,43 +3,30 @@
 }
 
 .stc-mega-menu-toggle {
-    background: #FFFFFF;
-    border: 1px solid #D1D5DB;
-    box-sizing: border-box;
-    border-radius: 2px;
+    background: var( --stc-color-white );
+    border: 1px solid var(--stc-border-color);
+    border-radius: var(--stc-border-radius-2);
+    fill: var(--stc-color-placeholder);
     padding: 10px 13px;
-    fill: #6B7280;
+    box-sizing: border-box;
     cursor: pointer;
     display: none;;
 }
 
-.stc-mega-menu {
-    display: flex;
-    position: relative;
-}
-
 .stc-mega-menu-group {
-    position: absolute;
-    top: 100%;
-    background: #000;
-    width: 200px;
-    opacity: 0;
-    visibility: hidden;
-    background: #FFFFFF;
+    background: var( --stc-color-white );
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 var(--stc-border-color) var(--stc-border-color);
     padding: 14px 20px 20px 20px;
     z-index: 9;
     display: flex;
     flex-wrap: wrap;
-    width: 200px;
     margin: var( --stc-mega-menu-group-margin, 0 );
 
     &.stc-mega-menu-group-two-col {
         width: 400px;
     }
 }
-
 
 .stc-mega-menu-item {
     position: relative;
@@ -58,19 +45,19 @@
 
 .stc-mega-menu-section-title {
     font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: var(--stc-font-size-xs);
+    line-height: var(--stc-font-line-height-xs);
     display: flex;
     align-items: center;
-    color: #1F2937;
+    color: var( --stc-color-heading );
     margin-bottom: 5px;
 }
 
 .stc-mega-menu-children {
-    color: #4B5563;
+    color: var(--stc-color-body);
     font-weight: normal;
-    font-size: 13px;
-    line-height: 20px;
+    font-size: var(--stc-font-size-xs);
+    line-height: var(--stc-font-line-height-xs);
 }
 
 .stc-mega-menu-child-item {
@@ -84,7 +71,7 @@
 
 .stc-mega-menu-item:hover > .stc-mega-menu-item-title,
 .stc-mega-menu-item-active > .stc-mega-menu-item-title {
-    border-bottom-color: #1F2937;
+    border-bottom-color: var( --stc-color-heading );
 }
 
 .stc-mega-menu-item-title {
@@ -99,15 +86,29 @@
 .stc-mega-menu-item-icon {
     width: 10px;
     height: 10px;
-    fill: #6B7280;
+    fill: var(--stc-color-placeholder);
     margin-left: 10px;
 }
 
 .stc-mega-menu-item-active .stc-mega-menu-item-icon {
-    fill: #1F2937;
+    fill: var( --stc-color-heading );
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
+
+    .stc-mega-menu {
+        display: flex;
+        position: relative;
+    }
+
+    .stc-mega-menu-group {
+        position: absolute;
+        top: 100%;
+        opacity: 0;
+        visibility: hidden;
+        width: 200px;
+    }
+
     .stc-mega-menu-group-col-2,
     .stc-mega-menu-group-col-3 {
         width: 400px;
@@ -123,7 +124,7 @@
         
         .stc-mega-menu-section:nth-child(1),
         .stc-mega-menu-section:nth-child(3) {
-            border-right: 1px solid #E5E7EB;
+            border-right: 1px solid var( --stc-color-light-gray );
         }
 
         .stc-mega-menu-section:nth-child(2),
@@ -134,11 +135,11 @@
 }
 
 @media (max-width: 768px) {
-    .stc-mega-menu {
+    .stc-mega-menu-container {
         display: none;
     }
-    .stc-mega-menu-show .stc-mega-menu {
-        display: flex;
+    .stc-mega-menu-show .stc-mega-menu-container {
+        display: block;
     }
     .stc-mega-menu-toggle {
         display: inline-block;
@@ -146,4 +147,54 @@
     .stc-mega-menu-item-icon {
         display: none;
     }
+
+    .stc-mega-menu-item {
+        margin-bottom: 15px;
+        display: flex;
+    }
+    
+    .stc-mega-menu-item-title {
+        display: none;
+    }
+    
+    .stc-mega-menu-group {
+        background: transparent;
+        box-shadow: none;
+        border-radius: initial;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        flex-direction: column;
+
+        &-col-2,
+        &-col-3 {
+            .stc-mega-menu-section:nth-child(2),
+            .stc-mega-menu-section:nth-child(4) {
+                padding: 0;
+            }
+        }
+    }
+    
+    .stc-mega-menu-container {
+        background: var( --stc-color-white );
+        box-shadow: 0 2px 4px -1px rgb(0 0 0 / 10%), 0 4px 6px rgb(0 0 0 / 10%);
+        border-radius: 0 0 4px 4px;
+        padding: 20px ​40p;
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        margin-top: 15px;
+        overflow-y: auto;
+        height: 50vh;
+    }
+    
+    .stc-mega-menu-section {
+        width: 100%;
+    }
+    
+    .st-other-filters {
+        position: relative;
+    }
+    
 }

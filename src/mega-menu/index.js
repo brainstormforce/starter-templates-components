@@ -23,65 +23,67 @@ const MegaMenu = ( { options, value, onClick } ) => {
 				</svg>
 			</div>
 
-			<div className="stc-mega-menu">
-				{
-					options.map( ( option ) => {
-						return (
-							<div
-								key={ option.ID }
-								dataId={option.ID}
-								className={`stc-mega-menu-item ${ value === option.ID ? 'stc-mega-menu-item-active' : ''}`}
-							>
-								<span className='stc-mega-menu-item-title'>
-									{ option.title }
-									<svg className='stc-mega-menu-item-icon' width="8" height="6" viewBox="0 0 8 6" xmlns="http://www.w3.org/2000/svg">
-										<path d="M3.57737 5.15134L0.176305 1.64053C-0.0587684 1.39787 -0.0587684 1.00549 0.176305 0.765408L0.741482 0.181994C0.976555 -0.0606647 1.35667 -0.0606647 1.58925 0.181994L4 2.67054L6.41075 0.181994C6.64583 -0.0606647 7.02595 -0.0606647 7.25852 0.181994L7.8237 0.765408C8.05877 1.00807 8.05877 1.40045 7.8237 1.64053L4.42263 5.15134C4.19256 5.394 3.81244 5.394 3.57737 5.15134Z" />
-									</svg>
-								</span>
+			<div className='stc-mega-menu-container'>
+				<div className="stc-mega-menu">
+					{
+						options.map( ( option ) => {
+							return (
+								<div
+									key={ option.ID }
+									dataId={option.ID}
+									className={`stc-mega-menu-item ${ value === option.ID ? 'stc-mega-menu-item-active' : ''}`}
+								>
+									<span className='stc-mega-menu-item-title'>
+										{ option.title }
+										<svg className='stc-mega-menu-item-icon' width="8" height="6" viewBox="0 0 8 6" xmlns="http://www.w3.org/2000/svg">
+											<path d="M3.57737 5.15134L0.176305 1.64053C-0.0587684 1.39787 -0.0587684 1.00549 0.176305 0.765408L0.741482 0.181994C0.976555 -0.0606647 1.35667 -0.0606647 1.58925 0.181994L4 2.67054L6.41075 0.181994C6.64583 -0.0606647 7.02595 -0.0606647 7.25852 0.181994L7.8237 0.765408C8.05877 1.00807 8.05877 1.40045 7.8237 1.64053L4.42263 5.15134C4.19256 5.394 3.81244 5.394 3.57737 5.15134Z" />
+										</svg>
+									</span>
 
-								{
-									option.children && option.children.length > 0 && (
-										<div className={`stc-mega-menu-group stc-mega-menu-group-col-${option.children.length}`}>
-											{
-												option.children.map( ( child ) => {
-													return (
-														<div className="stc-mega-menu-section">
-															<span className='stc-mega-menu-section-title'>{ child.title }</span>
-															{
-																child.children && child.children.length > 0 && (
-																	<div className="stc-mega-menu-children">
-																		{
-																			child.children.map( ( childItem ) => {
-																				return (
-																					<div
-																						className="stc-mega-menu-child-item"
-																						key={ childItem.ID }
-																						onClick={ (event) => {
-																							console.log( 'clicked' );
-																							if( 'function' === typeof onClick ) {
-																								onClick( event, option, childItem );
-																							}
-																						}}
-																					>
-																						{ childItem.title }
-																					</div>
-																				);
-																			} )
-																		}
-																	</div>
-																)
-															}
-														</div>
-													);
-												} )
-											}
-										</div>
-									)
-								}
-							</div>
-						);
-					} )
-				}
+									{
+										option.children && option.children.length > 0 && (
+											<div className={`stc-mega-menu-group stc-mega-menu-group-col-${option.children.length}`}>
+												{
+													option.children.map( ( child ) => {
+														return (
+															<div className="stc-mega-menu-section">
+																<span className='stc-mega-menu-section-title'>{ child.title }</span>
+																{
+																	child.children && child.children.length > 0 && (
+																		<div className="stc-mega-menu-children">
+																			{
+																				child.children.map( ( childItem ) => {
+																					return (
+																						<div
+																							className="stc-mega-menu-child-item"
+																							key={ childItem.ID }
+																							onClick={ (event) => {
+																								console.log( 'clicked' );
+																								if( 'function' === typeof onClick ) {
+																									onClick( event, option, childItem );
+																								}
+																							}}
+																						>
+																							{ childItem.title }
+																						</div>
+																					);
+																				} )
+																			}
+																		</div>
+																	)
+																}
+															</div>
+														);
+													} )
+												}
+											</div>
+										)
+									}
+								</div>
+							);
+						} )
+					}
+				</div>
 			</div>
 		</div>
 	)
