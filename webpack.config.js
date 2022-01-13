@@ -1,35 +1,17 @@
-const path = require('path');
+var path = require("path");
+
 module.exports = {
-    mode: 'production',
-    entry: [
-        './src/index.js',
-        './src/tailwind.css',
-    ],
+    mode: "production",
+    entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'index.js',
+        path: path.resolve("build"),
+        filename: "index.js",
+        libraryTarget: "commonjs2"
     },
     module: {
         rules: [
-            {
-                test: /\.js$/i,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env'],
-                    },
-                },
-            },
-            {
-                test: /\.css$/i,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'postcss-loader'
-                ],
-            },
-            {
-                test: /\.scss$/i,
+			{
+				test: /\.s[ac]ss$/i,
 				use: [
 					// Creates `style` nodes from JS strings
 					'style-loader',
@@ -38,14 +20,15 @@ module.exports = {
 					// Compiles Sass to CSS
 					'sass-loader',
 				],
-            },
-        ],
+			},
+			{
+				test: /\.(js|jsx)$/,
+				exclude: /node_modules/,
+				use: ['babel-loader'],
+			},
+		],
     },
-    devServer: {
-        static: {
-          directory: path.join(__dirname, 'build/index.html'),
-        },
-        compress: true,
-        port: 9000,
-    },
+    externals: {
+        react: "react"
+    }
 };
