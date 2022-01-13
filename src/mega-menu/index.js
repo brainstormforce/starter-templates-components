@@ -30,7 +30,6 @@ const MegaMenu = ( { options, value, onClick } ) => {
 							return (
 								<div
 									key={ option.ID }
-									dataId={option.ID}
 									className={`stc-mega-menu-item ${ value === option.ID ? 'stc-mega-menu-item-active' : ''}`}
 								>
 									<span className='stc-mega-menu-item-title'>
@@ -46,7 +45,10 @@ const MegaMenu = ( { options, value, onClick } ) => {
 												{
 													option.children.map( ( child ) => {
 														return (
-															<div className="stc-mega-menu-section">
+															<div
+																key={ child.ID }
+																className="stc-mega-menu-section"
+															>
 																<span className='stc-mega-menu-section-title'>{ child.title }</span>
 																{
 																	child.children && child.children.length > 0 && (
