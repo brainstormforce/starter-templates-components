@@ -1,6 +1,7 @@
 .stc-sites-no-results {
     border-bottom: 1px solid var(--stc-border-color);
     box-sizing: border-box;
-    padding: 30px 30px 30px 0;
+    padding: var( --stc-sites-no-results-padding, 30px 30px 30px 0 );
     text-align: left;
+    background: var(--stc-background-secondary);
 }
