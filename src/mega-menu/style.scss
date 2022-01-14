@@ -16,8 +16,9 @@
 .stc-mega-menu-group {
     background: var( --stc-color-white );
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 var(--stc-border-color) var(--stc-border-color);
-    padding: 14px 20px 20px 20px;
+    border-radius: 0 0 var(--stc-border-radius-4) var(--stc-border-radius-4);
+    padding: 18px 22px 22px 22px;
+    left: -22px;
     z-index: 9;
     display: flex;
     flex-wrap: wrap;
@@ -50,7 +51,7 @@
     display: flex;
     align-items: center;
     color: var( --stc-color-heading );
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 .stc-mega-menu-children {
@@ -61,11 +62,16 @@
 }
 
 .stc-mega-menu-child-item {
-    margin-bottom: 3px;
+    margin-bottom: 6px;
     cursor: pointer;
+    font-size: 13px;
 
     &:hover {
         color: var(--stc-color-accent-hover);
+    }
+
+    &:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -78,6 +84,7 @@
     cursor: pointer;
     border-bottom: 2px solid transparent;
     display: inline-block;
+    font-size: 15px;
     margin: var( --stc-mega-menu-item-title-margin, 0 20px 0 0 );
     padding: var( --stc-mega-menu-item-title-padding, 0 0 20px 0 );
 
@@ -109,7 +116,7 @@
         top: 100%;
         opacity: 0;
         visibility: hidden;
-        width: 200px;
+        width: 230px;
     }
 
     .stc-mega-menu-group-col-2,
@@ -122,7 +129,7 @@
 
         .stc-mega-menu-section:nth-child(1),
         .stc-mega-menu-section:nth-child(2) {
-            padding-bottom: 15px;
+            padding-bottom: 20px;
         }
         
         .stc-mega-menu-section:nth-child(1),
@@ -189,7 +196,7 @@
     .stc-mega-menu-container {
         background: var( --stc-color-white );
         box-shadow: 0 2px 4px -1px rgb(0 0 0 / 10%), 0 4px 6px rgb(0 0 0 / 10%);
-        border-radius: 0 0 4px 4px;
+        border-radius: 0 0 var(--stc-border-radius-4) var(--stc-border-radius-4);
         padding: 37px 45px;
         position: absolute;
         left: 0;
