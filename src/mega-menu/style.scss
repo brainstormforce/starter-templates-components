@@ -80,16 +80,20 @@
     display: inline-block;
     margin: var( --stc-mega-menu-item-title-margin, 0 20px 0 0 );
     padding: var( --stc-mega-menu-item-title-padding, 0 0 20px 0 );
+
+    svg {
+        width: 10px;
+        height: 10px;
+        fill: var(--stc-color-placeholder);
+        margin-left: 10px;
+    }
+
+    &:hover svg {
+        fill: var( --stc-color-heading );
+    }
 }
 
-.stc-mega-menu-item-icon {
-    width: 10px;
-    height: 10px;
-    fill: var(--stc-color-placeholder);
-    margin-left: 10px;
-}
-
-.stc-mega-menu-item-active .stc-mega-menu-item-icon {
+.stc-mega-menu-item-active svg {
     fill: var( --stc-color-heading );
 }
 
@@ -155,7 +159,8 @@
     .stc-mega-menu-toggle {
         display: inline-block;
     }
-    .stc-mega-menu-item-icon {
+
+    .stc-mega-menu-item-title svg {
         display: none;
     }
 
