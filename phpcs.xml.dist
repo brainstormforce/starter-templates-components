@@ -46,9 +46,5 @@
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/dist/*</exclude-pattern>
-	<exclude-pattern>*/admin/*</exclude-pattern>
-	<exclude-pattern>*/inc/assets/js/dist/*</exclude-pattern>
-	<exclude-pattern>*/inc/lib/*</exclude-pattern>
-	<exclude-pattern>/inc/assets/js/main.asset.php</exclude-pattern>
-
+	<exclude-pattern>*/build/*</exclude-pattern>
 </ruleset>

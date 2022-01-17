@@ -28,19 +28,8 @@ jobs:
             - Final release PR. Please check all the checklist below before merging.
             ---
             ### Checklist:
-            - [ ] Finalize changelog.txt
-            - [ ] Add doc links in the changelog.txt and update the file with today's date
-            - [ ] Check if Gutenberg Blocks/Astra Notices library is updated to latest - Run `composer update`
-            - [ ] Run to update packages        : `npm audit fix`
-            - [ ] Run to produce rtl files : `grunt rtl`
-            - [ ] Run to update the Template Library : `wp option delete astra-sites-last-export-checksums && wp astra-sites sync --force` Be sure to install and activate the [JSON file generator plugin](https://github.com/brainstormforce/astra-sites-json-file-generator).
-            - [ ] PHPCS - vendor/bin/phpcs
-            - [ ] Run to update version number  : `grunt version-bump --ver=<version-number>`
-            - [ ] Generate POT file : `wp i18n make-pot . languages/astra-sites.pot`
-            - [ ] Run the command to copy common code to Free plugin : `grunt copy-inc`
-            - [ ] Add draft Release notes on github
-            - [ ] Add draft changelogs to wpastra.com with `Starter Templates` plugin
-            - [ ] Open PR to backport branch to `next-release`
+              - [ ] Run to update packages        : `npm audit fix`
+              - [ ] PHPCS - vendor/bin/phpcs
             ---
           body-update-action: 'prefix'
           title-update-action: 'prefix'
