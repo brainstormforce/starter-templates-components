@@ -6,9 +6,7 @@ import './style.scss';
 import { Logo } from '../index';
 import { ICONS } from '../icons';
 
-const ToggleDropdown = (
-	{ label, options, className, value, onClick }
-) => {
+const ToggleDropdown = ( { label, options, className, value, onClick } ) => {
 	const [ state, setState ] = useState( {
 		option: {
 			id: '',
@@ -56,10 +54,10 @@ const ToggleDropdown = (
 	}
 
 	return (
-		<div ref={ ref } className={ `stc-toggle-dropdown ${ className }` }>
+		<div ref={ ref     } className={ `stc-toggle-dropdown ${ className }` }>
 			<div
 				className="stc-toggle-dropdown-selected"
-				onClick={ ( event ) => {
+				onClick={ ( ) => {
 					setToggle( ! toggle );
 				} }
 			>
@@ -97,9 +95,7 @@ const ToggleDropdown = (
 											option,
 										} );
 
-										if (
-											'function' === typeof onClick
-										) {
+										if ( 'function' === typeof onClick ) {
 											onClick( event, option );
 											setToggle( false );
 										}
@@ -122,6 +118,6 @@ const ToggleDropdown = (
 			) }
 		</div>
 	);
-}
+};
 
 export default ToggleDropdown;

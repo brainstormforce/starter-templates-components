@@ -1,0 +1,14 @@
+{
+    "name": "brainstormforce/starter-templates-components",
+    "description": "Starter Templates Component Library.",
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "0.7.1",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "wp-coding-standards/wpcs": "dev-master"
+      },
+    "scripts": {
+      "format": "phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+      "lint": "phpcs --standard=phpcs.xml.dist --report-summary --report-source"
+    }
+  }
+  

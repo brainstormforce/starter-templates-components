@@ -40,7 +40,7 @@ const Grid = ( {
 						: false;
 
 				const screenshotStyle = {};
-				if( item.image ) {
+				if ( item.image ) {
 					screenshotStyle.backgroundImage = `url(${ item.image })`;
 				}
 
@@ -68,10 +68,11 @@ const Grid = ( {
 
 								{ !! item?.link ? (
 									<div className="stc-grid-item-hover-button-wrap">
-										<a 
+										<a
 											className="stc-grid-item-hover-button"
-											href={item.link}
+											href={ item.link }
 											target="_blank"
+											rel="noreferrer"
 										>
 											{ buttonLabel }
 										</a>
@@ -82,9 +83,7 @@ const Grid = ( {
 									<Tooltip
 										content={ `${
 											! isFavorite
-												? __(
-														'Add to favorites'
-												  )
+												? __( 'Add to favorites' )
 												: ''
 										}` }
 									>

@@ -7,40 +7,49 @@ import { useDebouncedCallback } from 'use-debounce';
 import './style.scss';
 import { ICONS } from '../icons';
 
-const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, placeholder, onKeyUp } ) => {
-	const searchPlaceholder = placeholder
-		? placeholder
-		: __( 'Search..' );
+const Search = ( {
+	apiUrl,
+	onSearchResult,
+	beforeSearchResult,
+	onSearch,
+	value,
+	placeholder,
+	onKeyUp,
+} ) => {
+	const searchPlaceholder = placeholder ? placeholder : __( 'Search..' );
 
 	const debounced = useDebouncedCallback(
 		// to memoize debouncedFunction we use useCallback hook.
 		// In this case all linters work correctly
-		useCallback( ( value ) => {
-			if( typeof beforeSearchResult === 'function' ) {
-				beforeSearchResult();
-			}
-
-			// Avoid the API call if the value is empty.
-			if( ! value ) {
-				onSearchResult( {}, value );
-				return;
-			}
-
-			fetch( apiUrl )
-			.then( ( res ) => res.json() )
-			.then( ( response ) => {
-				if( typeof onSearchResult === 'function' ) {
-					onSearchResult( response, value );
+		useCallback(
+			( value ) => {
+				if ( typeof beforeSearchResult === 'function' ) {
+					beforeSearchResult();
 				}
-			} );
-		}, [ value ] ),
+
+				// Avoid the API call if the value is empty.
+				if ( ! value ) {
+					onSearchResult( {}, value );
+					return;
+				}
+
+				fetch( apiUrl )
+					.then( ( res ) => res.json() )
+					.then( ( response ) => {
+						if ( typeof onSearchResult === 'function' ) {
+							onSearchResult( response, value );
+						}
+					} );
+			},
+			[ value ]
+		),
 		300,
 		// The maximum time func is allowed to be delayed before it's invoked:
 		{ maxWait: 2000 }
 	);
 
 	useEffect( () => {
-		if( apiUrl ) {
+		if ( apiUrl ) {
 			debounced( value );
 		}
 	}, [ value ] );
