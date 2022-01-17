@@ -54,10 +54,10 @@ const ToggleDropdown = ( { label, options, className, value, onClick } ) => {
 	}
 
 	return (
-		<div ref={ ref     } className={ `stc-toggle-dropdown ${ className }` }>
+		<div ref={ ref } className={ `stc-toggle-dropdown ${ className }` }>
 			<div
 				className="stc-toggle-dropdown-selected"
-				onClick={ ( ) => {
+				onClick={ () => {
 					setToggle( ! toggle );
 				} }
 			>
