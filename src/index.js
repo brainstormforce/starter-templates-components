@@ -26,4 +26,4 @@ export {
 	SiteType,
 	NoResultFound,
 	PremiumBadge,
-}
+};
