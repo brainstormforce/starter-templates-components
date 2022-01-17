@@ -46,16 +46,7 @@ jobs:
       if: always()
       run: if find . -name "*.php" ! -path "./vendor/*" ! -path "./admin/bsf-core/*" -exec php -l {} \; | grep "Errors parsing"; then exit 1; fi
 
-    - name: Fix ESLint autofixable errors
+    - name: Lint JS
       if: always()
-      run: npm run lint:js:fix
+      run: npm run lint:js
 
-    - name: Commit ESLint fixes
-      if: always()
-      uses: EndBug/add-and-commit@v7
-      with:
-          add: 'src/*.js'
-          default_author: github_actor
-          message: 'Commit ESLint auto fixes'
-          pathspec_error_handling: exitAtEnd
-          push: true
