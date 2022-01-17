@@ -4,8 +4,16 @@
 	  "plugin:@wordpress/eslint-plugin/recommended"
 	],
 	"env": {
-	  "browser": true
-	},
+		"browser": true
+	  },
+	  "parserOptions": {
+		  "requireConfigFile": false,
+		  "babelOptions": {
+			  "presets": [
+				  "@wordpress/babel-preset-default"
+			  ]
+		  }
+	  },
 	"globals": {
 		"starterTemplates": true,
 		"astraSitesVars": true,
