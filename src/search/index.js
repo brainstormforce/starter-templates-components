@@ -22,14 +22,14 @@ const Search = ( {
 		// to memoize debouncedFunction we use useCallback hook.
 		// In this case all linters work correctly
 		useCallback(
-			( value ) => {
+			( searchedText ) => {
 				if ( typeof beforeSearchResult === 'function' ) {
 					beforeSearchResult();
 				}
 
-				// Avoid the API call if the value is empty.
-				if ( ! value ) {
-					onSearchResult( {}, value );
+				// Avoid the API call if the searchedText is empty.
+				if ( ! searchedText ) {
+					onSearchResult( {}, searchedText );
 					return;
 				}
 
@@ -37,7 +37,7 @@ const Search = ( {
 					.then( ( res ) => res.json() )
 					.then( ( response ) => {
 						if ( typeof onSearchResult === 'function' ) {
-							onSearchResult( response, value );
+							onSearchResult( response, searchedText );
 						}
 					} );
 			},
