@@ -1,5 +1,5 @@
 // External Dependencies.
-import React, { memo, useEffect, useCallback } from 'react';
+import React, { memo, useEffect, useCallback, useRef } from 'react';
 import { __ } from '@wordpress/i18n';
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -11,6 +11,7 @@ const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, 
 	const searchPlaceholder = placeholder
 		? placeholder
 		: __( 'Search..' );
+	const inputRef = useRef( null );
 
 	const debounced = useDebouncedCallback(
 		// to memoize debouncedFunction we use useCallback hook.
@@ -43,6 +44,10 @@ const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, 
 		if( apiUrl ) {
 			debounced( value );
 		}
+
+		if( value ) {
+			inputRef.current.focus();
+		}
 	}, [ value ] );
 
 	return (
@@ -50,6 +55,7 @@ const Search = ( { apiUrl, onSearchResult, beforeSearchResult, onSearch, value, 
 			className={ `stc-search ${ value ? 'stc-search-have-input' : '' }` }
 		>
 			<input
+				ref={inputRef}
 				className="stc-search-input"
 				type="search"
 				value={ value }
