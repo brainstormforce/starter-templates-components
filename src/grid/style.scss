@@ -55,7 +55,7 @@
 }
 
 .stc-grid-item-screenshot {
-	display: block;
+	/* display: block;
 	cursor: pointer;
 	overflow: hidden;
 	position: relative;
@@ -70,6 +70,14 @@
 		content: "";
 		display: block;
 		padding-top: 118%;
+	} */
+
+	> img {
+		display: block;
+		cursor: pointer;
+		overflow: hidden;
+		position: relative;
+		max-width: 100%;
 	}
 }
 
