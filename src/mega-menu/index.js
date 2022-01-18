@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { ICONS } from '../icons';
 import './style.scss';
 
-const MegaMenu = ( { options, value, onClick } ) => {
+const MegaMenu = ( { options, parent, menu, onClick } ) => {
 
 	if( ! options ) {
 		return '';
@@ -29,7 +29,7 @@ const MegaMenu = ( { options, value, onClick } ) => {
 							return (
 								<div
 									key={ option.ID }
-									className={`stc-mega-menu-item ${ value === option.ID ? 'stc-mega-menu-item-active' : ''}`}
+									className={`stc-mega-menu-item ${ parent === option.ID ? 'stc-mega-menu-item-active' : ''}`}
 								>
 									<span className='stc-mega-menu-item-title'>
 										{ option.title }
@@ -54,10 +54,9 @@ const MegaMenu = ( { options, value, onClick } ) => {
 																				child.children.map( ( childItem ) => {
 																					return (
 																						<div
-																							className="stc-mega-menu-child-item"
+																							className={`stc-mega-menu-child-item ${ menu === childItem.ID ? 'stc-mega-menu-child-item-active' : ''}`}
 																							key={ childItem.ID }
 																							onClick={ (event) => {
-																								console.log( 'clicked' );
 																								if( 'function' === typeof onClick ) {
 																									onClick( event, option, childItem );
 																								}

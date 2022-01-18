@@ -66,6 +66,7 @@
     cursor: pointer;
     font-size: 13px;
 
+    &.stc-mega-menu-child-item-active,
     &:hover {
         color: var(--stc-color-accent-hover);
     }
