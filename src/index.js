@@ -12,6 +12,7 @@ import SiteType from './site-type';
 import NoResultFound from './no-result-found';
 import MegaMenu from './mega-menu';
 import PremiumBadge from './premium-badge';
+import SiteBusinessType from './site-business-type';
 
 export {
 	Button,
@@ -28,4 +29,5 @@ export {
 	NoResultFound,
 	MegaMenu,
 	PremiumBadge,
+	SiteBusinessType,
 }
