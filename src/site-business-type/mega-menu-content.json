@@ -302,11 +302,6 @@
 				"parent": "0",
 				"children": [
 					{
-						"ID": 3134,
-						"title": "Political",
-						"parent": "52"
-					},
-					{
 						"ID": 3816,
 						"title": "Church",
 						"parent": "52"
