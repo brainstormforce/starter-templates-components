@@ -5,7 +5,7 @@ import './style.scss';
 
 const SiteBusinessType = ( { parent, menu, onClick } ) => {
 	return (
-		<div className="st-mega-menu-filter">
+		<div className="stc-mega-menu-filter">
 			<MegaMenu
 				parent={ parent }
 				menu={ menu }
