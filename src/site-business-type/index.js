@@ -11,7 +11,7 @@ const SiteBusinessType = ( { parent, menu, onClick } ) => {
 				menu={ menu }
 				options={ MegaMenuOptions }
 				onClick={ ( event, option, childItem ) => {
-					if( 'function' === typeof onClick ) {
+					if ( 'function' === typeof onClick ) {
 						onClick( event, option, childItem );
 					}
 				} }

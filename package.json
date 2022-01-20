@@ -3,10 +3,16 @@
   "version": "1.0.0",
   "author": "Brainstorm Force",
   "description": "Starter Templates Component Library.",
-  "main": "./build/index.js",
+  "main": "./index.js",
   "scripts": {
     "start": "webpack --watch --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "check-engines": "wp-scripts check-engines",
+    "check-licenses": "wp-scripts check-licenses",
+    "format:js": "wp-scripts format-js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js ./src/",
+    "lint:js:fix": "wp-scripts lint-js ./src/ --fix"
   },
   "keywords": [
     "reactjs",
@@ -14,6 +20,7 @@
   ],
   "license": "ISC",
   "devDependencies": {
+    "@wordpress/scripts": "^14.1.0",
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
@@ -24,7 +31,8 @@
     "style-loader": "^1.0.1",
     "svg-url-loader": "^7.1.1",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "prettier": "npm:wp-prettier@^2.2.1-beta-1"
   },
   "dependencies": {
     "@wordpress/html-entities": "^3.2.3",

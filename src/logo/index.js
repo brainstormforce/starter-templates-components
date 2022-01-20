@@ -21,14 +21,23 @@ const Logo = ( { className, text, src, alt, onClick, href } ) => {
 			{ src ? (
 				<>
 					{ href ? (
-						<a href={ href }
+						<a
+							href={ href }
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							<img src={ src } className="stc-logo-image" alt={ alt } />
+							<img
+								src={ src }
+								className="stc-logo-image"
+								alt={ alt }
+							/>
 						</a>
 					) : (
-						<img src={ src } className="stc-logo-image" alt={ alt } />
+						<img
+							src={ src }
+							className="stc-logo-image"
+							alt={ alt }
+						/>
 					) }
 				</>
 			) : null }

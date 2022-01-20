@@ -30,4 +30,4 @@ export {
 	MegaMenu,
 	PremiumBadge,
 	SiteBusinessType,
-}
+};
