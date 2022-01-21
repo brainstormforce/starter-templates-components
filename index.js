@@ -11,4 +11,7 @@ export {
 	SiteOrder,
 	SiteType,
 	NoResultFound,
+	MegaMenu,
+	PremiumBadge,
+	SiteBusinessType,
 } from './src/index.js';

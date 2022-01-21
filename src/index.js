@@ -10,7 +10,9 @@ import Toaster from './toaster';
 import SiteOrder from './site-order';
 import SiteType from './site-type';
 import NoResultFound from './no-result-found';
+import MegaMenu from './mega-menu';
 import PremiumBadge from './premium-badge';
+import SiteBusinessType from './site-business-type';
 
 export {
 	Button,
@@ -25,5 +27,7 @@ export {
 	SiteOrder,
 	SiteType,
 	NoResultFound,
+	MegaMenu,
 	PremiumBadge,
+	SiteBusinessType,
 };
