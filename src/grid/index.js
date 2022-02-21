@@ -45,7 +45,7 @@ const Grid = ( {
 				}
 
 				return (
-					<div className="stc-grid-item" key={ index }>
+					<div className="stc-grid-item" data-id={index} key={ index }>
 						<div className="stc-grid-item-inner">
 							{ item.badge ? (
 								<PremiumBadge badge={ item.badge } />
