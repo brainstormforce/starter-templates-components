@@ -34,10 +34,17 @@ const MegaMenu = ( { options, parent, menu, onClick } ) => {
 							<div
 								key={ option.ID }
 								className={ `stc-mega-menu-item ${
-									parent === option.ID
+									parent === option.ID ||
+									( menu === option.ID &&
+										parent === option.ID )
 										? 'stc-mega-menu-item-active'
 										: ''
 								}` }
+								onClick={ ( event ) => {
+									if ( 'function' === typeof onClick ) {
+										onClick( event, option, option );
+									}
+								} }
 							>
 								<span className="stc-mega-menu-item-title">
 									{ option.title }
@@ -86,6 +93,7 @@ const MegaMenu = ( { options, parent, menu, onClick } ) => {
 																								'function' ===
 																								typeof onClick
 																							) {
+																								event.stopPropagation();
 																								onClick(
 																									event,
 																									option,
