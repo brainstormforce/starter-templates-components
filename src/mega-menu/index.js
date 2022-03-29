@@ -34,12 +34,23 @@ const MegaMenu = ( { options, parent, menu, onClick } ) => {
 							<div
 								key={ option.ID }
 								className={ `stc-mega-menu-item ${
-									parent === option.ID
+									parent === option.ID ||
+									( menu === option.ID &&
+										parent === option.ID )
 										? 'stc-mega-menu-item-active'
 										: ''
 								}` }
 							>
-								<span className="stc-mega-menu-item-title">
+								<span
+									className="stc-mega-menu-item-title"
+									onClick={ ( event ) => {
+										if ( 'function' === typeof onClick ) {
+											event.stopPropagation();
+											event.preventDefault();
+											onClick( event, option, option );
+										}
+									} }
+								>
 									{ option.title }
 									{ ICONS.dropdown }
 								</span>
@@ -86,6 +97,7 @@ const MegaMenu = ( { options, parent, menu, onClick } ) => {
 																								'function' ===
 																								typeof onClick
 																							) {
+																								event.stopPropagation();
 																								onClick(
 																									event,
 																									option,
