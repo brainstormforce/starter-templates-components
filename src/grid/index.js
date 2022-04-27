@@ -46,7 +46,7 @@ const Grid = ( {
 
 				return (
 					<div
-						className="stc-grid-item"
+						className= { `stc-grid-item ${ item.desc ? 'stc-grid-new-item':''} `}
 						data-id={ item.id }
 						key={ index }
 					>
@@ -69,6 +69,12 @@ const Grid = ( {
 								<div className="stc-grid-item-title">
 									{ decodeEntities( item.title ) }
 								</div>
+
+								{ item.desc ? (
+									<div className="stc-grid-item-desc">
+										{ item.desc.substring(0, 60) }
+									</div>
+								) : null }
 
 								{ !! item?.link ? (
 									<div className="stc-grid-item-hover-button-wrap">
