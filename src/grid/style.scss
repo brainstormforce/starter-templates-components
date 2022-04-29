@@ -197,10 +197,11 @@
     visibility: hidden;
     opacity: 0;    
     color: var(--stc-color-white);
+	margin-top: 15px;
 }
 
 .stc-grid-item-hover-button-wrapper{
-	justify-content: center;
+    justify-content: center;
     position: absolute;
     left: 0;
     background: transparent;
@@ -220,4 +221,11 @@
     width: 32px;
     height: auto;
     margin: 5px;
+    border-radius: 50%;
+}
+.st-template-page-builder-wrap{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
 }
