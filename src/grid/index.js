@@ -46,7 +46,9 @@ const Grid = ( {
 
 				return (
 					<div
-						className= { `stc-grid-item ${ item.desc ? 'stc-grid-new-item':''} `}
+						className={ `stc-grid-item ${
+							item.desc ? 'stc-grid-new-item' : ''
+						} ` }
 						data-id={ item.id }
 						key={ index }
 					>
@@ -72,11 +74,11 @@ const Grid = ( {
 
 								{ item.desc ? (
 									<div className="stc-grid-item-desc">
-										{ item.desc.substring(0, 60) }
+										{ item.desc.substring( 0, 60 ) }
 									</div>
 								) : null }
 
-								{ !! item?.link ? (
+								{ !! item?.link && ! item.desc ? (
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
@@ -119,6 +121,27 @@ const Grid = ( {
 									</Tooltip>
 								) : null }
 							</div>
+
+							{ !! item?.link && item.desc ? (
+								<div className="stc-grid-item-hover-button-wrapper">
+									<div
+										className="st-template-page-builder-wrap"
+										dangerouslySetInnerHTML={ {
+											__html: item.pageBuilder,
+										} }
+									/>
+									<div className="stc-grid-item-hover-button-wrap">
+										<a
+											className="stc-grid-item-hover-button"
+											href={ item.link }
+											target="_blank"
+											rel="noreferrer"
+										>
+											{ buttonLabel }
+										</a>
+									</div>
+								</div>
+							) : null }
 						</div>
 					</div>
 				);
