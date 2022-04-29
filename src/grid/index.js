@@ -74,7 +74,7 @@ const Grid = ( {
 
 								{ item.desc ? (
 									<div className="stc-grid-item-desc">
-										{ item.desc.substring( 0, 60 ) }
+										{ item.desc.substring( 0, 100 ) }
 									</div>
 								) : null }
 
