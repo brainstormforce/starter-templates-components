@@ -19,6 +19,7 @@ const Grid = ( {
 	onFavoriteClick,
 	favoriteList,
 	buttonLabel,
+	enableNewUi,
 } ) => {
 	if ( ! options.length ) {
 		return '';
@@ -27,7 +28,7 @@ const Grid = ( {
 	return (
 		<div
 			className={ `
-				stc-grid-wrap
+				stc-grid-wrap				
 				grid-${ column || '3' }
 				${ className ?? '' }
 			` }
@@ -46,7 +47,7 @@ const Grid = ( {
 
 				return (
 					<div
-						className="stc-grid-item"
+						className={ `stc-grid-item` }
 						data-id={ item.id }
 						key={ index }
 					>
@@ -70,7 +71,13 @@ const Grid = ( {
 									{ decodeEntities( item.title ) }
 								</div>
 
-								{ !! item?.link ? (
+								{ item.desc ? (
+									<div className="stc-grid-item-desc">
+										{ item.desc.substring( 0, 100 ) }
+									</div>
+								) : null }
+
+								{ !! item?.link && ! enableNewUi ? (
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
@@ -113,6 +120,27 @@ const Grid = ( {
 									</Tooltip>
 								) : null }
 							</div>
+
+							{ enableNewUi ? (
+								<div className="stc-grid-item-hover-button-wrapper">
+									<div
+										className="st-template-page-builder-wrap"
+										dangerouslySetInnerHTML={ {
+											__html: item.pageBuilder,
+										} }
+									/>
+									<div className="stc-grid-item-hover-button-wrap">
+										<a
+											className="stc-grid-item-hover-button"
+											href={ item.link }
+											target="_blank"
+											rel="noreferrer"
+										>
+											{ buttonLabel }
+										</a>
+									</div>
+								</div>
+							) : null }
 						</div>
 					</div>
 				);

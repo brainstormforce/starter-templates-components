@@ -48,7 +48,7 @@
 	cursor: pointer;
 
 	&:hover {
-		.stc-grid-item-hover-button-wrap {
+		.stc-grid-item-hover-button-wrap, .stc-grid-item-hover-button-wrapper {
 			animation: stc-visible 0.2s linear forwards;
 		}
 	}
@@ -71,6 +71,9 @@
 		display: block;
 		padding-top: 118%;
 	}
+	&:hover {
+		opacity: 0.2;
+	}
 }
 
 .stc-grid-item-inner {
@@ -83,6 +86,9 @@
 	border: 1px solid var( --stc-color-light-gray );
 	&:hover {
 		box-shadow: 0 6px 14px rgb(0 0 0 / 12%);
+		.stc-grid-item-screenshot{
+			opacity: 0.2;
+		}
 	}
 }
 
@@ -143,5 +149,82 @@
 	&:hover {
 		background: var(--stc-color-accent-hover);
 		color: var(--stc-color-white);
+	}
+}
+
+.stc-grid-new-item {
+	font-family: 'Inter';
+	font-style: normal;
+	.stc-grid-item-header {
+		padding: 20px 20px;
+		border-top: 1px solid #e9e9e9;
+		background: var(--stc-color-white);
+		border: 1px solid var(--stc-border-color);
+		box-sizing: border-box;
+		border-radius: 0px 0px 4px 4px;
+		display: grid;
+	}
+	.stc-grid-item-desc {
+		font-family: 'Inter';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 25px;
+	}
+	.stc-grid-item-title {
+		color: var(--st-color-heading);
+		font-size: var(--st-font-size-xs);
+		line-height: var(--st-line-height-xs);
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		width: 100%;
+		font-weight: 600;
+		display: flex;
+		align-items: center;
+		line-height: 24px;
+	}
+	.stc-grid-item-hover-button-wrap {
+		justify-content: center;
+		position: absolute;
+		left: 0;
+		background: transparent;
+		width: 100%;
+		height: auto;
+		visibility: hidden;
+		opacity: 0;
+		color: var(--stc-color-white);
+		margin-top: 15px;
+	}
+}
+.stc-grid-item-hover-button-wrapper {
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	background: transparent;
+	width: 100%;
+	height: auto;
+	visibility: hidden;
+	opacity: 0;
+	top: 45%;
+	bottom: 50%;
+	font-weight: 600;
+	font-size: 16px;
+	line-height: 24px;
+	align-items: center;
+	text-align: center;
+}
+.st-template-page-builder-wrap {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	span {
+		& > svg {
+			width: 32px;
+			height: auto;
+			margin: 5px;
+			border-radius: 50%;
+		}
 	}
 }
