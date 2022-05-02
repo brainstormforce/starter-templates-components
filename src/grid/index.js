@@ -19,6 +19,7 @@ const Grid = ( {
 	onFavoriteClick,
 	favoriteList,
 	buttonLabel,
+	enableNewUi,
 } ) => {
 	if ( ! options.length ) {
 		return '';
@@ -27,7 +28,7 @@ const Grid = ( {
 	return (
 		<div
 			className={ `
-				stc-grid-wrap
+				stc-grid-wrap				
 				grid-${ column || '3' }
 				${ className ?? '' }
 			` }
@@ -46,9 +47,7 @@ const Grid = ( {
 
 				return (
 					<div
-						className={ `stc-grid-item ${
-							item.desc ? 'stc-grid-new-item' : ''
-						} ` }
+						className={ `stc-grid-item` }
 						data-id={ item.id }
 						key={ index }
 					>
@@ -78,7 +77,7 @@ const Grid = ( {
 									</div>
 								) : null }
 
-								{ !! item?.link && ! item.desc ? (
+								{ !! item?.link && ! enableNewUi ? (
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
@@ -122,7 +121,7 @@ const Grid = ( {
 								) : null }
 							</div>
 
-							{ !! item?.link && item.desc ? (
+							{ enableNewUi ? (
 								<div className="stc-grid-item-hover-button-wrapper">
 									<div
 										className="st-template-page-builder-wrap"
