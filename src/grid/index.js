@@ -60,14 +60,15 @@ const Grid = ( {
 								<div className='stc-grid-item-screenshot-wrap'>
 									<div
 										className="stc-grid-item-screenshot"
-										style={ screenshotStyle }
-										onClick={ ( event ) => {
-											if ( 'function' === typeof onClick ) {
-												onClick( event, item );
-											}
-										} }
+										style={ screenshotStyle }										
 									/>
-								<div className='stc-grid-item-blur' />	
+								<div className='stc-grid-item-blur' 
+									onClick={ ( event ) => {
+										if ( 'function' === typeof onClick ) {
+											onClick( event, item );
+										}
+									} }
+									/>	
 								</div>
 							):
 								<div
