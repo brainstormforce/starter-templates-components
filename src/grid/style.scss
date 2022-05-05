@@ -192,6 +192,9 @@
 		color: var(--stc-color-white);
 		margin-top: 15px;
 	}
+	.stc-grid-item {
+		cursor: default;
+	}
 }
 .stc-grid-item-hover-button-wrapper {
 	justify-content: center;
