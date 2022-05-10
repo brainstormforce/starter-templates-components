@@ -56,15 +56,34 @@ const Grid = ( {
 								<PremiumBadge badge={ item.badge } />
 							) : null }
 
-							<div
-								className="stc-grid-item-screenshot"
-								style={ screenshotStyle }
-								onClick={ ( event ) => {
-									if ( 'function' === typeof onClick ) {
-										onClick( event, item );
-									}
-								} }
-							/>
+							{ enableNewUi ? (
+								<div className="stc-grid-item-screenshot-wrap">
+									<div
+										className="stc-grid-item-screenshot"
+										style={ screenshotStyle }
+									/>
+									<div
+										className="stc-grid-item-blur"
+										onClick={ ( event ) => {
+											if (
+												'function' === typeof onClick
+											) {
+												onClick( event, item );
+											}
+										} }
+									/>
+								</div>
+							) : (
+								<div
+									className="stc-grid-item-screenshot"
+									style={ screenshotStyle }
+									onClick={ ( event ) => {
+										if ( 'function' === typeof onClick ) {
+											onClick( event, item );
+										}
+									} }
+								/>
+							) }
 
 							<div className="stc-grid-item-header">
 								<div className="stc-grid-item-title">
@@ -133,7 +152,6 @@ const Grid = ( {
 										<a
 											className="stc-grid-item-hover-button"
 											href={ item.link }
-											target="_blank"
 											rel="noreferrer"
 										>
 											{ buttonLabel }
