@@ -57,20 +57,23 @@ const Grid = ( {
 							) : null }
 
 							{ enableNewUi ? (
-								<div className='stc-grid-item-screenshot-wrap'>
+								<div className="stc-grid-item-screenshot-wrap">
 									<div
 										className="stc-grid-item-screenshot"
-										style={ screenshotStyle }										
+										style={ screenshotStyle }
 									/>
-								<div className='stc-grid-item-blur' 
-									onClick={ ( event ) => {
-										if ( 'function' === typeof onClick ) {
-											onClick( event, item );
-										}
-									} }
-									/>	
+									<div
+										className="stc-grid-item-blur"
+										onClick={ ( event ) => {
+											if (
+												'function' === typeof onClick
+											) {
+												onClick( event, item );
+											}
+										} }
+									/>
 								</div>
-							):
+							) : (
 								<div
 									className="stc-grid-item-screenshot"
 									style={ screenshotStyle }
@@ -80,7 +83,7 @@ const Grid = ( {
 										}
 									} }
 								/>
-							}	
+							) }
 
 							<div className="stc-grid-item-header">
 								<div className="stc-grid-item-title">
