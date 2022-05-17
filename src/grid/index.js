@@ -58,20 +58,26 @@ const Grid = ( {
 
 							{ enableNewUi ? (
 								<div className="stc-grid-item-screenshot-wrap">
-									<div
-										className="stc-grid-item-screenshot"
-										style={ screenshotStyle }
-									/>
-									<div
-										className="stc-grid-item-blur"
-										onClick={ ( event ) => {
-											if (
-												'function' === typeof onClick
-											) {
-												onClick( event, item );
-											}
-										} }
-									/>
+									<a
+										href={ item.link }
+										target="_blank"
+										rel="noreferrer"
+										>
+										<div
+											className="stc-grid-item-screenshot"
+											style={ screenshotStyle }
+										/>
+										<div
+											className="stc-grid-item-blur"
+											onClick={ ( event ) => {
+												if (
+													'function' === typeof onClick
+												) {
+													onClick( event, item );
+												}
+											} }
+										/>
+									</a>
 								</div>
 							) : (
 								<div
