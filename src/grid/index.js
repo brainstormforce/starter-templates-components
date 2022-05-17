@@ -62,7 +62,7 @@ const Grid = ( {
 										href={ item.link }
 										target="_blank"
 										rel="noreferrer"
-										>
+									>
 										<div
 											className="stc-grid-item-screenshot"
 											style={ screenshotStyle }
@@ -71,7 +71,8 @@ const Grid = ( {
 											className="stc-grid-item-blur"
 											onClick={ ( event ) => {
 												if (
-													'function' === typeof onClick
+													'function' ===
+													typeof onClick
 												) {
 													onClick( event, item );
 												}
