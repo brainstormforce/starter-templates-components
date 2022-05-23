@@ -58,17 +58,12 @@ const Grid = ( {
 
 							{ enableNewUi ? (
 								<div className="stc-grid-item-screenshot-wrap">
-									<a
-										href={ item.link }
-										rel="noreferrer"
-									>
+									<a href={ item.link } rel="noreferrer">
 										<div
 											className="stc-grid-item-screenshot"
 											style={ screenshotStyle }
 										/>
-										<div
-											className="stc-grid-item-blur"
-										/>
+										<div className="stc-grid-item-blur" />
 									</a>
 								</div>
 							) : (
