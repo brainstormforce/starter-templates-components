@@ -60,7 +60,6 @@ const Grid = ( {
 								<div className="stc-grid-item-screenshot-wrap">
 									<a
 										href={ item.link }
-										target="_blank"
 										rel="noreferrer"
 									>
 										<div
