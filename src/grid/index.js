@@ -69,14 +69,6 @@ const Grid = ( {
 										/>
 										<div
 											className="stc-grid-item-blur"
-											onClick={ ( event ) => {
-												if (
-													'function' ===
-													typeof onClick
-												) {
-													onClick( event, item );
-												}
-											} }
 										/>
 									</a>
 								</div>
