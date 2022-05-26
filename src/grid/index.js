@@ -67,9 +67,11 @@ const Grid = ( {
 									</a>
 								</div>
 							) : (
-								<div
-									className="stc-grid-item-screenshot"
-									style={ screenshotStyle }
+								<img
+									className="stc-grid-site-screenshot"
+									src={ item.image }
+									alt={ decodeEntities( item.title ) }
+									loading="lazy"
 									onClick={ ( event ) => {
 										if ( 'function' === typeof onClick ) {
 											onClick( event, item );
