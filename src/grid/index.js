@@ -40,11 +40,6 @@ const Grid = ( {
 						? favoriteList.includes( `id-${ item.id }` )
 						: false;
 
-				const screenshotStyle = {};
-				if ( item.image ) {
-					screenshotStyle.backgroundImage = `url(${ item.image })`;
-				}
-
 				return (
 					<div
 						className={ `stc-grid-item` }
@@ -59,10 +54,12 @@ const Grid = ( {
 							{ enableNewUi ? (
 								<div className="stc-grid-item-screenshot-wrap">
 									<a href={ item.link } rel="noreferrer">
-										<div
-											className="stc-grid-item-screenshot"
-											style={ screenshotStyle }
-										/>
+									<img
+										className="stc-grid-site-screenshot"
+										src={ item.image }
+										alt={ decodeEntities( item.title ) }
+										loading="lazy"
+									/>
 										<div className="stc-grid-item-blur" />
 									</a>
 								</div>
