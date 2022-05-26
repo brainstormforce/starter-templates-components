@@ -54,12 +54,12 @@ const Grid = ( {
 							{ enableNewUi ? (
 								<div className="stc-grid-item-screenshot-wrap">
 									<a href={ item.link } rel="noreferrer">
-									<img
-										className="stc-grid-site-screenshot"
-										src={ item.image }
-										alt={ decodeEntities( item.title ) }
-										loading="lazy"
-									/>
+										<img
+											className="stc-grid-site-screenshot"
+											src={ item.image }
+											alt={ decodeEntities( item.title ) }
+											loading="lazy"
+										/>
 										<div className="stc-grid-item-blur" />
 									</a>
 								</div>
