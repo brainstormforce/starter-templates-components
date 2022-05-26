@@ -18,7 +18,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
+        submodules: recursive
         token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+        ref: ${{ github.event.pull_request.head.ref }}
 
     - name: Use Node.js 12.x
       uses: actions/setup-node@v2.5.1
@@ -48,5 +50,16 @@ jobs:
 
     - name: Lint JS
       if: always()
-      run: npm run lint:js
+      run: npm run lint:js:fix
+
+    - name: Commit ESLint fixes
+      if: always()
+      uses: EndBug/add-and-commit@v8.0.2
+      with:
+          add: 'inc/lib/onboarding/*.js'
+          default_author: github_actor
+          message: 'Commit ESLint auto fixes'
+          pathspec_error_handling: exitAtEnd
+          push: true
+
 
