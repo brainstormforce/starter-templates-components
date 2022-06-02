@@ -51,7 +51,7 @@
 
 .stc-grid-item {
 	cursor: pointer;
-	height: 26vw;
+	height: 34vw;
 
 	&:hover {
 		.stc-grid-item-hover-button-wrap {
@@ -224,6 +224,6 @@
 }
 @media (max-width: 767px) {
     .stc-grid-item {
-	   height: 100vw;
+	   height: 120vw;
     }
 }
