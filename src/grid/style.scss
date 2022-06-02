@@ -211,3 +211,19 @@
     opacity: 0;
     transition: opacity 150ms linear;
 }
+
+@media (max-width: 1280px) {
+    .stc-grid-item {
+	   height: 45vw;
+    }
+}
+@media (max-width: 991px) {
+    .stc-grid-item {
+	   height: 60vw;
+    }
+}
+@media (max-width: 767px) {
+    .stc-grid-item {
+	   height: 100vw;
+    }
+}
