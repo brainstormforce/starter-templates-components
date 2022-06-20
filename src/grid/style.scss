@@ -192,11 +192,19 @@
 	justify-content: center;
 	align-items: center;
 	span {
+		&:last-of-type {
+			display: flex;
+			align-items: center;
+		}
 		& > svg {
 			width: 32px;
 			height: auto;
 			margin: 5px;
 			border-radius: 50%;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
 		}
 	}
 }
