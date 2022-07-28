@@ -91,7 +91,7 @@ const Grid = ( {
 								) : null }
 
 								{ !! item?.link && ! enableNewUi ? (
-									<>
+								<div>
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
@@ -112,7 +112,7 @@ const Grid = ( {
 											{ buttonLabel2 }
 										</a>
 									</div>
-									</>
+								</div>
 								) : null }
 
 								{ hasFavorite ? (
