@@ -19,6 +19,7 @@ const Grid = ( {
 	onFavoriteClick,
 	favoriteList,
 	buttonLabel,
+	buttonLabel2,
 	enableNewUi,
 } ) => {
 	if ( ! options.length ) {
@@ -90,6 +91,7 @@ const Grid = ( {
 								) : null }
 
 								{ !! item?.link && ! enableNewUi ? (
+									<>
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
@@ -100,6 +102,17 @@ const Grid = ( {
 											{ buttonLabel }
 										</a>
 									</div>
+									<div className="stc-grid-item-hover-button-wrap">
+										<a
+											className="stc-grid-item-hover-button"
+											href={ item.link }
+											target="_blank"
+											rel="noreferrer"
+										>
+											{ buttonLabel2 }
+										</a>
+									</div>
+									</>
 								) : null }
 
 								{ hasFavorite ? (
@@ -148,6 +161,15 @@ const Grid = ( {
 											rel="noreferrer"
 										>
 											{ buttonLabel }
+										</a>
+									</div>
+									<div className="stc-grid-item-hover-button-wrap">
+										<a
+											className="stc-grid-item-hover-button"
+											href={ item.link }
+											rel="noreferrer"
+										>
+											{ buttonLabel2 }
 										</a>
 									</div>
 								</div>
