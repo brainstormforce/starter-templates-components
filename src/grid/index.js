@@ -102,9 +102,9 @@ const Grid = ( {
 											{ buttonLabel }
 										</a>
 									</div>
-									<div className="stc-grid-item-hover-button-wrap">
+									<div className="stc-grid-item-hover-new-button-wrap">
 										<a
-											className="stc-grid-item-hover-button"
+											className="stc-grid-item-hover-new-button2"
 											href={ item.link }
 											target="_blank"
 											rel="noreferrer"
@@ -163,9 +163,9 @@ const Grid = ( {
 											{ buttonLabel }
 										</a>
 									</div>
-									<div className="stc-grid-item-hover-button-wrap">
+									<div className="stc-grid-item-hover-new-button-wrap">
 										<a
-											className="stc-grid-item-hover-button2"
+											className="stc-grid-item-hover-new-button"
 											href={ item.link }
 											rel="noreferrer"
 										>
