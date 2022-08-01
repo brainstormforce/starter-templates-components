@@ -165,7 +165,7 @@ const Grid = ( {
 									</div>
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
-											className="stc-grid-item-hover-button"
+											className="stc-grid-item-hover-button2"
 											href={ item.link }
 											rel="noreferrer"
 										>
