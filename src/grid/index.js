@@ -96,22 +96,21 @@ const Grid = ( {
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
-											href={ item.link }
+											href={ item.Livelink }
 											target="_blank"
 											rel="noreferrer"
 										>
 											{ buttonLabel }
 										</a>
 									</div>
-									<div className="stc-grid-item-hover-new-button-wrap">
+									<div className="st-template-page-builder-wrap">
 										<a
-											className="stc-grid-item-hover-new-button"
+											className="st-template-page-builder-wrap"
 											href={ item.link }
-											target="_blank"
 											rel="noreferrer"
 										>
-											{ buttonLabel2 }
-										</a>
+										{ Livebutton }
+									</a>
 									</div>
 								</div>
 								) : null }
@@ -151,17 +150,17 @@ const Grid = ( {
 								<div className="stc-grid-item-hover-button-wrapper">
 									<div className="st-template-page-builder-wrap">
 										<a
-										className="st-template-page-builder-wrap"
-										href={ item.link }
-										rel="noreferrer"
-									>
+											className="st-template-page-builder-wrap"
+											href={ item.link }
+											rel="noreferrer"
+										>
 										{ Livebutton }
 									</a>
 									</div>
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
-											href={ item.link }
+											href={ item.Livelink }
 											rel="noreferrer"
 										>
 											{ buttonLabel }
