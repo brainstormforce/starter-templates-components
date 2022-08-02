@@ -20,6 +20,7 @@ const Grid = ( {
 	favoriteList,
 	buttonLabel,
 	buttonLabel2,
+	Livebutton,
 	enableNewUi,
 } ) => {
 	if ( ! options.length ) {
@@ -148,12 +149,15 @@ const Grid = ( {
 
 							{ enableNewUi ? (
 								<div className="stc-grid-item-hover-button-wrapper">
-									<div
+									<div className="st-template-page-builder-wrap">
+										<a
 										className="st-template-page-builder-wrap"
-										dangerouslySetInnerHTML={ {
-											__html: item.pageBuilder,
-										} }
-									/>
+										href={ item.Livelink }
+										rel="noreferrer"
+									>
+										{ Livebutton }
+									</a>
+									</div>
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
