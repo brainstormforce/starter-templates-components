@@ -152,7 +152,7 @@ const Grid = ( {
 									<div className="st-template-page-builder-wrap">
 										<a
 										className="st-template-page-builder-wrap"
-										href={ item.Livelink }
+										href={ item.link }
 										rel="noreferrer"
 									>
 										{ Livebutton }
