@@ -145,7 +145,8 @@ const Grid = ( {
 										</a>
 										<a
 											className="stc-grid-item-hover-button"
-											href={ item.link }
+											href={ item.livelink }
+											target="_blank"
 											rel="noreferrer"
 										>
 											{ livePreview }
