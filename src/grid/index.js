@@ -134,7 +134,7 @@ const Grid = ( {
 							</div>
 
 							{ enableNewUi ? (
-								<div className="stc-grid-item-hover-button-wrapper">									
+								<div className="stc-grid-item-hover-button-wrapper">
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
