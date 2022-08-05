@@ -13,6 +13,10 @@ const SiteType = ( { value, onClick } ) => {
 					title: __( 'All' ),
 				},
 				{
+					id: 'free',
+					title: __( 'Free' ),
+				},
+				{
 					id: 'agency-mini',
 					title: __( 'Premium' ),
 				},
