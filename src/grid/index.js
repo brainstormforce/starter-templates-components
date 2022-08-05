@@ -19,6 +19,7 @@ const Grid = ( {
 	onFavoriteClick,
 	favoriteList,
 	buttonLabel,
+	livePreview,
 	enableNewUi,
 } ) => {
 	if ( ! options.length ) {
@@ -40,11 +41,6 @@ const Grid = ( {
 						? favoriteList.includes( `id-${ item.id }` )
 						: false;
 
-				const screenshotStyle = {};
-				if ( item.image ) {
-					screenshotStyle.backgroundImage = `url(${ item.image })`;
-				}
-
 				return (
 					<div
 						className={ `stc-grid-item` }
@@ -59,17 +55,21 @@ const Grid = ( {
 							{ enableNewUi ? (
 								<div className="stc-grid-item-screenshot-wrap">
 									<a href={ item.link } rel="noreferrer">
-										<div
-											className="stc-grid-item-screenshot"
-											style={ screenshotStyle }
+										<img
+											className="stc-grid-site-screenshot"
+											src={ item.image }
+											alt={ decodeEntities( item.title ) }
+											loading="lazy"
 										/>
 										<div className="stc-grid-item-blur" />
 									</a>
 								</div>
 							) : (
-								<div
-									className="stc-grid-item-screenshot"
-									style={ screenshotStyle }
+								<img
+									className="stc-grid-site-screenshot"
+									src={ item.image }
+									alt={ decodeEntities( item.title ) }
+									loading="lazy"
 									onClick={ ( event ) => {
 										if ( 'function' === typeof onClick ) {
 											onClick( event, item );
@@ -135,12 +135,6 @@ const Grid = ( {
 
 							{ enableNewUi ? (
 								<div className="stc-grid-item-hover-button-wrapper">
-									<div
-										className="st-template-page-builder-wrap"
-										dangerouslySetInnerHTML={ {
-											__html: item.pageBuilder,
-										} }
-									/>
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
@@ -148,6 +142,14 @@ const Grid = ( {
 											rel="noreferrer"
 										>
 											{ buttonLabel }
+										</a>
+										<a
+											className="stc-grid-item-hover-button"
+											href={ item.livelink }
+											target="_blank"
+											rel="noreferrer"
+										>
+											{ livePreview }
 										</a>
 									</div>
 								</div>
