@@ -24,7 +24,12 @@ const MegaMenu = ( { options, parent, menu, onClick } ) => {
 					setToggle( ! toggle );
 				} }
 			>
-				<span>Categories <span className='st-categories-icon'>{ ICONS.dropdown }</span></span>
+				<span>
+					Categories{ ' ' }
+					<span className="st-categories-icon">
+						{ ICONS.dropdown }
+					</span>
+				</span>
 			</div>
 
 			<div className="stc-mega-menu-container">
