@@ -50,7 +50,7 @@ const Search = ( {
 	);
 
 	useEffect( () => {
-		if ( apiUrl ) {
+		if ( apiUrl ) { 
 			debounced( value );
 		}
 
@@ -74,13 +74,20 @@ const Search = ( {
 						onSearch( event, event.target.value );
 					}
 				} }
+				onClick={ ( event ) => {
+					if ( 'function' === typeof onClick ) {
+						onClick( event );
+					}
+				} }
 				onKeyUp={ ( event ) => {
 					if ( 'function' === typeof onKeyUp ) {
 						onKeyUp( event );
 					}
 				} }
 			/>
-			<button className="stc-search-icon">{ ICONS.search }</button>
+			<button className="stc-search-icon">{ ICONS.search } 
+			
+			</button>
 			<button
 				className="stc-cross-icon"
 				onClick={ ( event ) => {
