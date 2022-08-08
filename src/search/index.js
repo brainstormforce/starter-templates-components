@@ -74,11 +74,6 @@ const Search = ( {
 						onSearch( event, event.target.value );
 					}
 				} }
-				onClick={ ( event ) => {
-					if ( 'function' === typeof onClick ) {
-						onClick( event );
-					}
-				} }
 				onKeyUp={ ( event ) => {
 					if ( 'function' === typeof onKeyUp ) {
 						onKeyUp( event );
