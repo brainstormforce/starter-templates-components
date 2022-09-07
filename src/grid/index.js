@@ -48,6 +48,12 @@ const Grid = ( {
 						key={ index }
 					>
 						<div className="stc-grid-item-inner">
+							{ item.postStatus && item.postStatus === 'draft' ? (
+								<span className="stc-grid-item-status">
+									{ item.postStatus }
+								</span>
+							) : null }
+
 							{ item.badge ? (
 								<PremiumBadge badge={ item.badge } />
 							) : null }
