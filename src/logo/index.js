@@ -4,7 +4,7 @@ import React from 'react';
 // Internal Dependencies.
 import './style.scss';
 
-const Logo = ( { className, text, src, alt, onClick } ) => {
+const Logo = ( { className, text, src, alt, onClick, href } ) => {
 	if ( ! text && ! src ) {
 		return '';
 	}
@@ -19,9 +19,27 @@ const Logo = ( { className, text, src, alt, onClick } ) => {
 			} }
 		>
 			{ src ? (
-				<a href={ astraSitesVars.st_page_url }>
-					<img src={ src } className="stc-logo-image" alt={ alt } />
-				</a>
+				<>
+					{ href ? (
+						<a
+							href={ href }
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<img
+								src={ src }
+								className="stc-logo-image"
+								alt={ alt }
+							/>
+						</a>
+					) : (
+						<img
+							src={ src }
+							className="stc-logo-image"
+							alt={ alt }
+						/>
+					) }
+				</>
 			) : null }
 
 			{ text ? (

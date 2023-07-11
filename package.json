@@ -1,40 +1,44 @@
 {
-  "name": "starter-templates-components",
+  "name": "@brainstormforce/starter-templates-components",
   "version": "1.0.0",
-  "main": "src/index.js",
   "author": "Brainstorm Force",
   "description": "Starter Templates Component Library.",
+  "main": "./build/index.js",
   "scripts": {
+    "start": "webpack --watch --mode development",
+    "build": "webpack --mode production",
     "check-engines": "wp-scripts check-engines",
     "check-licenses": "wp-scripts check-licenses",
     "format:js": "wp-scripts format-js",
     "lint:css": "wp-scripts lint-style",
-    "lint:js": "wp-scripts lint-js",
-    "lint:js:fix": "wp-scripts lint-js --fix",
-    "lint:md:docs": "wp-scripts lint-md-docs",
-    "lint:md:js": "wp-scripts lint-md-js",
-    "lint:pkg-json": "wp-scripts lint-pkg-json",
-    "test:unit": "wp-scripts test-unit-js",
-    "package": "grunt release-deprecated",
-    "build": "wp-scripts build",
-    "start": "wp-scripts start"
+    "lint:js": "wp-scripts lint-js ./src/",
+    "lint:js:fix": "wp-scripts lint-js ./src/ --fix"
   },
   "keywords": [
     "reactjs",
     "components"
   ],
-  "engines": {
-    "node": ">=10.0.0",
-    "npm": ">=6.9.0 <7"
-  },
   "license": "ISC",
   "devDependencies": {
-    "@wordpress/scripts": "^14.1.0"
+    "@wordpress/scripts": "^14.1.0",
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-react": "^7.7.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.3.0",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.1.0",
+    "style-loader": "^1.0.1",
+    "svg-url-loader": "^7.1.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "prettier": "npm:wp-prettier@^2.2.1-beta-1"
   },
   "dependencies": {
     "@wordpress/html-entities": "^3.2.3",
-    "@wordpress/i18n": "^4.2.3",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "@wordpress/i18n": "^4.2.4",
+    "react": "^16.12.0",
+    "react-dom": "^17.0.1",
+    "use-debounce": "^7.0.1"
   }
 }

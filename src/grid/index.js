@@ -7,6 +7,7 @@ import { __ } from '@wordpress/i18n';
 import { ICONS } from '../icons';
 import './style.scss';
 import Tooltip from '../tooltip';
+import { PremiumBadge } from '..';
 
 // Grid Component
 const Grid = ( {
@@ -17,6 +18,9 @@ const Grid = ( {
 	hasFavorite,
 	onFavoriteClick,
 	favoriteList,
+	buttonLabel,
+	livePreview,
+	enableNewUi,
 } ) => {
 	if ( ! options.length ) {
 		return '';
@@ -25,7 +29,7 @@ const Grid = ( {
 	return (
 		<div
 			className={ `
-				stc-grid-wrap
+				stc-grid-wrap				
 				grid-${ column || '3' }
 				${ className ?? '' }
 			` }
@@ -38,39 +42,71 @@ const Grid = ( {
 						: false;
 
 				return (
-					<div className="stc-grid-item" key={ index }>
+					<div
+						className={ `stc-grid-item` }
+						data-id={ item.id }
+						key={ index }
+					>
 						<div className="stc-grid-item-inner">
 							{ item.badge ? (
-								<div className="stc-grid-item-badge">
-									{ item.badge }
-								</div>
+								<PremiumBadge badge={ item.badge } />
 							) : null }
 
-							<div
-								className="stc-grid-item-screenshot"
-								style={ {
-									backgroundImage: `url(${ item.image })`,
-								} }
-								onClick={ ( event ) => {
-									if ( 'function' === typeof onClick ) {
-										onClick( event, item );
-									}
-								} }
-							/>
+							{ enableNewUi ? (
+								<div className="stc-grid-item-screenshot-wrap">
+									<a href={ item.link } rel="noreferrer">
+										<img
+											className="stc-grid-site-screenshot"
+											src={ item.image }
+											alt={ decodeEntities( item.title ) }
+											loading="lazy"
+										/>
+										<div className="stc-grid-item-blur" />
+									</a>
+								</div>
+							) : (
+								<img
+									className="stc-grid-site-screenshot"
+									src={ item.image }
+									alt={ decodeEntities( item.title ) }
+									loading="lazy"
+									onClick={ ( event ) => {
+										if ( 'function' === typeof onClick ) {
+											onClick( event, item );
+										}
+									} }
+								/>
+							) }
 
 							<div className="stc-grid-item-header">
 								<div className="stc-grid-item-title">
 									{ decodeEntities( item.title ) }
 								</div>
 
+								{ item.desc ? (
+									<div className="stc-grid-item-desc">
+										{ item.desc.substring( 0, 100 ) }
+									</div>
+								) : null }
+
+								{ !! item?.link && ! enableNewUi ? (
+									<div className="stc-grid-item-hover-button-wrap">
+										<a
+											className="stc-grid-item-hover-button"
+											href={ item.link }
+											target="_blank"
+											rel="noreferrer"
+										>
+											{ buttonLabel }
+										</a>
+									</div>
+								) : null }
+
 								{ hasFavorite ? (
 									<Tooltip
 										content={ `${
 											! isFavorite
-												? __(
-														'Add to favorites',
-														'astra-sites'
-												  )
+												? __( 'Add to favorites' )
 												: ''
 										}` }
 									>
@@ -96,6 +132,28 @@ const Grid = ( {
 									</Tooltip>
 								) : null }
 							</div>
+
+							{ enableNewUi ? (
+								<div className="stc-grid-item-hover-button-wrapper">
+									<div className="stc-grid-item-hover-button-wrap">
+										<a
+											className="stc-grid-item-hover-button"
+											href={ item.link }
+											rel="noreferrer"
+										>
+											{ buttonLabel }
+										</a>
+										<a
+											className="stc-grid-item-hover-button"
+											href={ item.livelink }
+											target="_blank"
+											rel="noreferrer"
+										>
+											{ livePreview }
+										</a>
+									</div>
+								</div>
+							) : null }
 						</div>
 					</div>
 				);
