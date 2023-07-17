@@ -7,6 +7,7 @@ const SiteOrder = ( { value, onClick } ) => {
 		<ToggleDropdown
 			className="stc-site-order-filter"
 			value={ value }
+			desc="SORT BY"
 			options={ [
 				{
 					id: 'popular',

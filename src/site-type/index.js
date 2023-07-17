@@ -7,6 +7,7 @@ const SiteType = ( { value, onClick } ) => {
 		<ToggleDropdown
 			className="stc-site-type-filter"
 			value={ value }
+			desc="BY TYPE"
 			options={ [
 				{
 					id: '',
