@@ -6,14 +6,7 @@ import './style.scss';
 import { Logo } from '../index';
 import { ICONS } from '../icons';
 
-const ToggleDropdown = ( {
-	label,
-	options,
-	className,
-	value,
-	onClick,
-	desc,
-} ) => {
+const ToggleDropdown = ( { label, options, className, value, onClick } ) => {
 	const [ state, setState ] = useState( {
 		option: {
 			id: '',
@@ -88,9 +81,6 @@ const ToggleDropdown = ( {
 			{ toggle && (
 				<div className="stc-toggle-dropdown-popup">
 					<div className="stc-toggle-dropdown-popup-content">
-						<div className="stc-toggle-dropdown-popup-desc">
-							{ desc }
-						</div>
 						{ options.map( ( option, index ) => {
 							return (
 								<div
@@ -118,19 +108,7 @@ const ToggleDropdown = ( {
 											src={ option.image }
 										/>
 									) : (
-										<>
-											<input
-												id={ option.title }
-												type="radio"
-												checked={
-													state.option.id ===
-													option.id
-												}
-											/>
-											<label htmlFor={ option.title }>
-												{ option.title }
-											</label>
-										</>
+										option.title
 									) }
 								</div>
 							);
