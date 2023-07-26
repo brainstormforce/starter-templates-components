@@ -48,10 +48,6 @@ const Grid = ( {
 						key={ index }
 					>
 						<div className="stc-grid-item-inner">
-							{ item.badge ? (
-								<PremiumBadge badge={ item.badge } />
-							) : null }
-
 							{ enableNewUi ? (
 								<div className="stc-grid-item-screenshot-wrap">
 									<a href={ item.link } rel="noreferrer">
@@ -81,6 +77,9 @@ const Grid = ( {
 							<div className="stc-grid-item-header">
 								<div className="stc-grid-item-title">
 									{ decodeEntities( item.title ) }
+									{ item.badge ? (
+										<PremiumBadge badge={ item.badge } />
+									) : null }
 								</div>
 
 								{ item.desc ? (
