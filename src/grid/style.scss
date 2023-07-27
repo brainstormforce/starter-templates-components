@@ -49,6 +49,7 @@
 	line-height: var( --stc-font-line-height-s );
 
 	.stc-grid-item-title-text {
+		text-align: start;
 		width: 80%;
 		white-space: nowrap;
 		overflow: hidden;
