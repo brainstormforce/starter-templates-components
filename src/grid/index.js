@@ -76,7 +76,9 @@ const Grid = ( {
 
 							<div className="stc-grid-item-header">
 								<div className="stc-grid-item-title">
-									{ decodeEntities( item.title ) }
+									<div className="stc-grid-item-title-text">
+										{ decodeEntities( item.title ) }
+									</div>
 									{ item.badge ? (
 										<PremiumBadge badge={ item.badge } />
 									) : null }

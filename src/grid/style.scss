@@ -47,6 +47,13 @@
 	font-size: var( --stc-font-size-m );
 	font-weight: var( --stc-font-weight-bold );
 	line-height: var( --stc-font-line-height-s );
+
+	.stc-grid-item-title-text {
+		width: 80%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
 }
 
 .stc-grid-item {
@@ -165,7 +172,7 @@
 	height: auto;
 	visibility: hidden;
 	opacity: 0;
-	top: 35%;
+	top: 30%;
 	bottom: 50%;
 	font-weight: 600;
 	font-size: 16px;
