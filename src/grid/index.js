@@ -135,13 +135,15 @@ const Grid = ( {
 							{ enableNewUi ? (
 								<div className="stc-grid-item-hover-button-wrapper">
 									<div className="stc-grid-item-hover-button-wrap">
-										<a
-											className="stc-grid-item-hover-button"
-											href={ item.link }
-											rel="noreferrer"
-										>
-											{ buttonLabel }
-										</a>
+										{ item?.link !== '#' ? (
+											<a
+												className="stc-grid-item-hover-button"
+												href={ item.link }
+												rel="noreferrer"
+											>
+												{ buttonLabel }
+											</a>
+										) : null }
 										<a
 											className="stc-grid-item-hover-button"
 											href={ item.livelink }
