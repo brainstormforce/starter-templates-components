@@ -4,7 +4,15 @@ import React from 'react';
 // Internal Dependencies.
 import './style.scss';
 
-const Logo = ( { className, text, src, alt, onClick, href } ) => {
+const Logo = ( {
+	className,
+	text,
+	src,
+	alt,
+	onClick,
+	href,
+	target = '_self',
+} ) => {
 	if ( ! text && ! src ) {
 		return '';
 	}
@@ -23,7 +31,7 @@ const Logo = ( { className, text, src, alt, onClick, href } ) => {
 					{ href ? (
 						<a
 							href={ href }
-							target="_blank"
+							target={ target }
 							rel="noopener noreferrer"
 						>
 							<img
