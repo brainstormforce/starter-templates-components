@@ -33,7 +33,6 @@ const Grid = ( {
 				grid-${ column || '3' }
 				${ className ?? '' }
 			` }
-			column={ column }
 		>
 			{ options.map( ( item, index ) => {
 				const isFavorite =
@@ -48,11 +47,11 @@ const Grid = ( {
 						key={ index }
 					>
 						<div className="stc-grid-item-inner">
-						
+
 							{ ! enableNewUi && (
 								item.badge ? (
 									<PremiumBadge badge={ item.badge } />
-								) : null 
+								) : null
 							) }
 
 							{ enableNewUi ? (
