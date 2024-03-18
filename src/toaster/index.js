@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { ICONS } from '../icons';
 import './style.scss';
 
-const Toaster = ( {
+const Toaster = ({
 	type,
 	message,
 	autoHideDuration = 3,
@@ -17,23 +17,23 @@ const Toaster = ( {
 	bottomCenter,
 	leftCenter,
 	style,
-} ) => {
-	const [ isVisible, setIsVisible ] = useState( true );
-	const [ removeFromDOM, setRemoveFromDOM ] = useState( false );
+}) => {
+	const [isVisible, setIsVisible] = useState(true);
+	const [removeFromDOM, setRemoveFromDOM] = useState(false);
 
-	const handleOnClick = ( event ) => {
+	const handleOnClick = (event) => {
 		event.stopPropagation();
-		setIsVisible( false );
+		setIsVisible(false);
 	};
 
-	setTimeout( () => {
-		setIsVisible( false );
-	}, autoHideDuration * 1000 );
+	setTimeout(() => {
+		setIsVisible(false);
+	}, autoHideDuration * 1000);
 
-	if ( ! isVisible ) {
-		setTimeout( () => {
-			setRemoveFromDOM( true );
-		}, 500 );
+	if (!isVisible) {
+		setTimeout(() => {
+			setRemoveFromDOM(true);
+		}, 500);
 	}
 
 	const position = [
@@ -45,31 +45,31 @@ const Toaster = ( {
 		bottomCenter && 'bottom-center',
 		leftCenter && 'left-center',
 	]
-		.filter( Boolean )
-		.join( '' );
+		.filter(Boolean)
+		.join('');
 
-	return ! removeFromDOM ? (
+	return !removeFromDOM ? (
 		<div
-			className={ `st-toaster ${ isVisible ? 'visible' : 'hidden' } ${
+			className={`st-toaster ${isVisible ? 'visible' : 'hidden'} ${
 				position || ''
-			}` }
-			style={ style }
+			}`}
+			style={style}
 		>
 			<div className="content">
 				<div
-					className={ `status-icon ${
+					className={`status-icon ${
 						type === 'error' ? 'failed' : type
-					}` }
+					}`}
 				>
-					{ ICONS[ type ] }
+					{ICONS[type]}
 				</div>
 				<div className="message">
-					<p>{ message }</p>
+					<p>{message}</p>
 				</div>
 			</div>
 			<div className="toaster-close">
-				<button className="close-btn" onClick={ handleOnClick }>
-					{ ICONS.close }
+				<button className="close-btn" onClick={handleOnClick}>
+					{ICONS.close}
 				</button>
 			</div>
 		</div>

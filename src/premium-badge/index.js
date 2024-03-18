@@ -1,10 +1,10 @@
 import React from 'react';
 import { __ } from '@wordpress/i18n';
 
-const PremiumBadge = ( { badge } ) => {
+const PremiumBadge = ({ badge }) => {
 	return (
 		<span className="stc-grid-item-badge">
-			{ badge ? badge : __( 'Premium', 'astra-sites' ) }
+			{badge ? badge : __('Premium', 'astra-sites')}
 		</span>
 	);
 };
