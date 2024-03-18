@@ -1,16 +1,45 @@
 // External Dependencies.
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Internal Dependencies.
 import { ICONS } from '../icons';
 import './style.scss';
 
-const MegaMenu = ( { options, parent, menu, onClick } ) => {
-	const [ toggle, setToggle ] = useState( false );
+const MegaMenu = ({ options, parent, menu, onClick }) => {
+  const [toggle, setToggle] = useState(false);
+  const [visibleOptions, setVisibleOptions] = useState([]);
 
-	if ( ! options ) {
-		return '';
-	}
+  useEffect(() => {
+    if (!options) return;
+
+    const updateVisibleOptions = () => {
+      const width = window.innerWidth;
+
+      if (width >= 1116) {
+        setVisibleOptions(options.slice(0, 9));
+      } else if (width < 1116 && width >= 950) {
+        setVisibleOptions(options.slice(0, 6));
+      } else if (width < 950 && width >= 751) {
+        setVisibleOptions(options.slice(0, 5));
+      } else if (width < 751 && width >= 601) {
+        setVisibleOptions(options.slice(0, 4));
+      } else if (width < 601 && width >= 451) {
+        setVisibleOptions(options.slice(0, 3));
+      }
+    };
+
+    updateVisibleOptions();
+
+    const handleResize = () => {
+      updateVisibleOptions();
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [options]);
 
 	return (
 		<div
@@ -29,7 +58,7 @@ const MegaMenu = ( { options, parent, menu, onClick } ) => {
 
 			<div className="stc-mega-menu-container">
 				<div className="stc-mega-menu">
-					{ options.map( ( option ) => {
+					{ visibleOptions.map( ( option ) => {
 						return (
 							<div
 								key={ option.ID }
