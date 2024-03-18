@@ -17,13 +17,13 @@ const MegaMenu = ({ options, parent, menu, onClick }) => {
 
       if (width >= 1116) {
         setVisibleOptions(options.slice(0, 9));
-      } else if (width < 1116 && width >= 950) {
-        setVisibleOptions(options.slice(0, 6));
-      } else if (width < 950 && width >= 751) {
+      } else if (width < 1116 && width >= 1025) { 
+		setVisibleOptions(options.slice(0, 6));
+	  } else if (width < 1025 && width >= 950) {
         setVisibleOptions(options.slice(0, 5));
-      } else if (width < 751 && width >= 601) {
+      } else if (width < 950 && width >= 751) {
         setVisibleOptions(options.slice(0, 4));
-      } else if (width < 601 && width >= 451) {
+      } else if (width < 751 && width >= 451) {
         setVisibleOptions(options.slice(0, 3));
       }
     };
