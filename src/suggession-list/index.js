@@ -3,36 +3,36 @@ import { decodeEntities } from '@wordpress/html-entities';
 
 import './style.scss';
 
-const SuggestionList = ( { value, options, onClick } ) => {
-	if ( ! options.length ) {
+const SuggestionList = ({ value, options, onClick }) => {
+	if (!options.length) {
 		return '';
 	}
 
 	return (
 		<div className="stc-suggestion-list">
-			{ options.map( ( option, index ) => {
-				const suggession = decodeEntities( option ).replace(
-					new RegExp( '(' + value + ')', 'gi' ),
+			{options.map((option, index) => {
+				const suggession = decodeEntities(option).replace(
+					new RegExp('(' + value + ')', 'gi'),
 					'<span class="stc-suggestion-highlight">$1</span>'
 				);
 
 				return (
 					<div
-						key={ index }
+						key={index}
 						className="stc-suggession"
-						dangerouslySetInnerHTML={ {
+						dangerouslySetInnerHTML={{
 							__html: suggession,
-						} }
-						onClick={ ( event ) => {
-							if ( 'function' === typeof onClick ) {
-								onClick( event, option );
+						}}
+						onClick={(event) => {
+							if ('function' === typeof onClick) {
+								onClick(event, option);
 							}
-						} }
+						}}
 					/>
 				);
-			} ) }
+			})}
 		</div>
 	);
 };
 
-export default memo( SuggestionList );
+export default memo(SuggestionList);
