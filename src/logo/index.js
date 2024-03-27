@@ -4,45 +4,49 @@ import React from 'react';
 // Internal Dependencies.
 import './style.scss';
 
-const Logo = ({ className, text, src, alt, onClick, href }) => {
-	if (!text && !src) {
+const Logo = ( { className, text, src, alt, onClick, href } ) => {
+	if ( ! text && ! src ) {
 		return '';
 	}
 
 	return (
 		<span
-			className={`stc-logo ${className ? className : ''}`}
-			onClick={(event) => {
-				if ('function' === typeof onClick) {
-					onClick(event);
+			className={ `stc-logo ${ className ? className : '' }` }
+			onClick={ ( event ) => {
+				if ( 'function' === typeof onClick ) {
+					onClick( event );
 				}
-			}}
+			} }
 		>
-			{src ? (
+			{ src ? (
 				<>
-					{href ? (
+					{ href ? (
 						<a
-							href={href}
+							href={ href }
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							<img
-								src={src}
+								src={ src }
 								className="stc-logo-image"
-								alt={alt}
+								alt={ alt }
 							/>
 						</a>
 					) : (
-						<img src={src} className="stc-logo-image" alt={alt} />
-					)}
+						<img
+							src={ src }
+							className="stc-logo-image"
+							alt={ alt }
+						/>
+					) }
 				</>
-			) : null}
+			) : null }
 
-			{text ? (
-				<div className="stc-logo-text" alt={alt}>
-					{text}
+			{ text ? (
+				<div className="stc-logo-text" alt={ alt }>
+					{ text }
 				</div>
-			) : null}
+			) : null }
 		</span>
 	);
 };

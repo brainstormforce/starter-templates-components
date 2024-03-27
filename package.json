@@ -39,6 +39,8 @@
     "svg-url-loader": "^7.1.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
+    "@wordpress/eslint-plugin": "^9.3.0",
+    "prettier": "npm:wp-prettier@^2.8.5",
     "wp-prettier": "^2.8.5"
   },
   "dependencies": {

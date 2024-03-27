@@ -4,45 +4,45 @@ import React, { useState } from 'react';
 // Internal Dependencies.
 import './style.scss';
 
-const Tooltip = ({ children, content }) => {
-	const [isVisible, setIsVisible] = useState(false);
-	const [timeOutRef, setTimeOutRef] = useState(null);
+const Tooltip = ( { children, content } ) => {
+	const [ isVisible, setIsVisible ] = useState( false );
+	const [ timeOutRef, setTimeOutRef ] = useState( null );
 
 	const visibleTooltip = () => {
-		setIsVisible(true);
+		setIsVisible( true );
 	};
 
 	const autoHideTooltip = () => {
 		setTimeOutRef(
-			setTimeout(() => {
-				setIsVisible(false);
-			}, 50)
+			setTimeout( () => {
+				setIsVisible( false );
+			}, 50 )
 		);
 	};
 
 	const clearAutoHide = () => {
-		clearTimeout(timeOutRef);
+		clearTimeout( timeOutRef );
 	};
 
 	return (
 		<div
 			className="stc-tooltip"
-			onMouseEnter={visibleTooltip}
-			onMouseLeave={autoHideTooltip}
+			onMouseEnter={ visibleTooltip }
+			onMouseLeave={ autoHideTooltip }
 		>
-			{children}
+			{ children }
 
-			{content ? (
+			{ content ? (
 				<div
-					className={`stc-tooltip-content ${
+					className={ `stc-tooltip-content ${
 						isVisible ? 'stc-tooltip-visible' : 'stc-tooltip-hidden'
-					}`}
-					onMouseEnter={clearAutoHide}
-					onMouseLeave={autoHideTooltip}
+					}` }
+					onMouseEnter={ clearAutoHide }
+					onMouseLeave={ autoHideTooltip }
 				>
-					{content}
+					{ content }
 				</div>
-			) : null}
+			) : null }
 		</div>
 	);
 };

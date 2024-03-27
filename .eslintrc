@@ -53,6 +53,7 @@
 		"react/jsx-no-literals": "off", // Should be enabled.
 		"react/jsx-no-useless-fragment": "off", // Should be enabled.
 		"import/order": [ "error", { "groups": [ "builtin", [ "external", "unknown" ], "internal", "parent", "sibling", "index" ] } ],
-		"func-style": ["error", "expression"]
+		"func-style": ["error", "expression"],
+		"jsdoc/newline-after-description": "off"
 	}
 }

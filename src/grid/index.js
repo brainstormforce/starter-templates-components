@@ -10,7 +10,7 @@ import Tooltip from '../tooltip';
 import { PremiumBadge } from '..';
 
 // Grid Component
-const Grid = ({
+const Grid = ( {
 	className,
 	column,
 	options,
@@ -21,44 +21,44 @@ const Grid = ({
 	buttonLabel,
 	livePreview,
 	enableNewUi,
-}) => {
-	if (!options.length) {
+} ) => {
+	if ( ! options.length ) {
 		return '';
 	}
 
 	return (
 		<div
-			className={`
+			className={ `
 				stc-grid-wrap				
-				grid-${column || '3'}
-				${className ?? ''}
-			`}
+				grid-${ column || '3' }
+				${ className ?? '' }
+			` }
 		>
-			{options.map((item, index) => {
+			{ options.map( ( item, index ) => {
 				const isFavorite =
 					favoriteList && favoriteList.length
-						? favoriteList.includes(`id-${item.id}`)
+						? favoriteList.includes( `id-${ item.id }` )
 						: false;
 
 				return (
 					<div
-						className={`stc-grid-item`}
-						data-id={item.id}
-						key={index}
+						className={ `stc-grid-item` }
+						data-id={ item.id }
+						key={ index }
 					>
 						<div className="stc-grid-item-inner">
-							{!enableNewUi &&
-								(item.badge ? (
-									<PremiumBadge badge={item.badge} />
-								) : null)}
+							{ ! enableNewUi &&
+								( item.badge ? (
+									<PremiumBadge badge={ item.badge } />
+								) : null ) }
 
-							{enableNewUi ? (
+							{ enableNewUi ? (
 								<div className="stc-grid-item-screenshot-wrap">
-									<a href={item.link} rel="noreferrer">
+									<a href={ item.link } rel="noreferrer">
 										<img
 											className="stc-grid-site-screenshot"
-											src={item.image}
-											alt={decodeEntities(item.title)}
+											src={ item.image }
+											alt={ decodeEntities( item.title ) }
 											loading="lazy"
 										/>
 										<div className="stc-grid-item-blur" />
@@ -67,58 +67,60 @@ const Grid = ({
 							) : (
 								<img
 									className="stc-grid-site-screenshot"
-									src={item.image}
-									alt={decodeEntities(item.title)}
+									src={ item.image }
+									alt={ decodeEntities( item.title ) }
 									loading="lazy"
-									onClick={(event) => {
-										if ('function' === typeof onClick) {
-											onClick(event, item);
+									onClick={ ( event ) => {
+										if ( 'function' === typeof onClick ) {
+											onClick( event, item );
 										}
-									}}
+									} }
 								/>
-							)}
+							) }
 
 							<div className="stc-grid-item-header">
 								<div className="stc-grid-item-title">
-									{decodeEntities(item.title)}
-									{enableNewUi &&
-										(item.badge ? (
-											<PremiumBadge badge={item.badge} />
-										) : null)}
+									{ decodeEntities( item.title ) }
+									{ enableNewUi &&
+										( item.badge ? (
+											<PremiumBadge
+												badge={ item.badge }
+											/>
+										) : null ) }
 								</div>
 
-								{item.desc ? (
+								{ item.desc ? (
 									<div className="stc-grid-item-desc">
-										{item.desc.substring(0, 100)}
+										{ item.desc.substring( 0, 100 ) }
 									</div>
-								) : null}
+								) : null }
 
-								{!!item?.link && !enableNewUi ? (
+								{ !! item?.link && ! enableNewUi ? (
 									<div className="stc-grid-item-hover-button-wrap">
 										<a
 											className="stc-grid-item-hover-button"
-											href={item.link}
+											href={ item.link }
 											target="_blank"
 											rel="noreferrer"
 										>
-											{buttonLabel}
+											{ buttonLabel }
 										</a>
 									</div>
-								) : null}
+								) : null }
 
-								{hasFavorite ? (
+								{ hasFavorite ? (
 									<Tooltip
-										content={`${
-											!isFavorite
-												? __('Add to favorites')
+										content={ `${
+											! isFavorite
+												? __( 'Add to favorites' )
 												: ''
-										}`}
+										}` }
 									>
 										<div
-											className={`stc-grid-favorite ${
+											className={ `stc-grid-favorite ${
 												isFavorite ? 'active' : ''
-											}`}
-											onClick={(event) => {
+											}` }
+											onClick={ ( event ) => {
 												if (
 													'function' ===
 													typeof onFavoriteClick
@@ -126,44 +128,44 @@ const Grid = ({
 													onFavoriteClick(
 														event,
 														item,
-														!isFavorite
+														! isFavorite
 													);
 												}
-											}}
+											} }
 										>
-											{ICONS.favorite}
+											{ ICONS.favorite }
 										</div>
 									</Tooltip>
-								) : null}
+								) : null }
 							</div>
 
-							{enableNewUi ? (
+							{ enableNewUi ? (
 								<div className="stc-grid-item-hover-button-wrapper">
 									<div className="stc-grid-item-hover-button-wrap">
-										{item?.link !== '#' ? (
+										{ item?.link !== '#' ? (
 											<a
 												className="stc-grid-item-hover-button"
-												href={item.link}
+												href={ item.link }
 												rel="noreferrer"
 											>
-												{buttonLabel}
+												{ buttonLabel }
 											</a>
-										) : null}
+										) : null }
 										<a
 											className="stc-grid-item-hover-button"
-											href={item.livelink}
+											href={ item.livelink }
 											target="_blank"
 											rel="noreferrer"
 										>
-											{livePreview}
+											{ livePreview }
 										</a>
 									</div>
 								</div>
-							) : null}
+							) : null }
 						</div>
 					</div>
 				);
-			})}
+			} ) }
 		</div>
 	);
 };

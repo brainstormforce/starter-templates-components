@@ -7,7 +7,7 @@ import { __ } from '@wordpress/i18n';
 import './style.scss';
 import { ICONS } from '../icons';
 
-const Search = ({
+const Search = ( {
 	apiUrl,
 	onSearchResult,
 	beforeSearchResult,
@@ -15,85 +15,87 @@ const Search = ({
 	value,
 	placeholder,
 	onKeyUp,
-}) => {
-	const searchPlaceholder = placeholder ? placeholder : __('Search..');
-	const inputRef = useRef(null);
+} ) => {
+	const searchPlaceholder = placeholder ? placeholder : __( 'Search..' );
+	const inputRef = useRef( null );
 
 	const debounced = useDebouncedCallback(
 		// to memoize debouncedFunction we use useCallback hook.
 		// In this case all linters work correctly
 		useCallback(
-			(searchedText) => {
-				if (typeof beforeSearchResult === 'function') {
+			( searchedText ) => {
+				if ( typeof beforeSearchResult === 'function' ) {
 					beforeSearchResult();
 				}
 
 				// Avoid the API call if the searchedText is empty.
-				if (!searchedText) {
-					onSearchResult({}, searchedText);
+				if ( ! searchedText ) {
+					onSearchResult( {}, searchedText );
 					return;
 				}
 
-				fetch(apiUrl)
-					.then((res) => res.json())
-					.then((response) => {
-						if (typeof onSearchResult === 'function') {
-							onSearchResult(response, searchedText);
+				fetch( apiUrl )
+					.then( ( res ) => res.json() )
+					.then( ( response ) => {
+						if ( typeof onSearchResult === 'function' ) {
+							onSearchResult( response, searchedText );
 						}
-					});
+					} );
 			},
-			[value]
+			[ value ]
 		),
 		300,
 		// The maximum time func is allowed to be delayed before it's invoked:
 		{ maxWait: 2000 }
 	);
 
-	useEffect(() => {
-		if (apiUrl) {
-			debounced(value);
+	useEffect( () => {
+		if ( apiUrl ) {
+			debounced( value );
 		}
 
-		if (value) {
+		if ( value ) {
 			inputRef.current.focus();
 		}
-	}, [value]);
+	}, [ value ] );
 
 	return (
-		<div className={`stc-search ${value ? 'stc-search-have-input' : ''}`}>
+		<div
+			className={ `stc-search ${ value ? 'stc-search-have-input' : '' }` }
+		>
 			<input
-				ref={inputRef}
+				ref={ inputRef }
 				className="stc-search-input"
 				type="search"
-				value={value}
-				placeholder={searchPlaceholder}
-				onChange={(event) => {
-					if ('function' === typeof onSearch) {
-						onSearch(event, event.target.value);
+				value={ value }
+				placeholder={ searchPlaceholder }
+				onChange={ ( event ) => {
+					if ( 'function' === typeof onSearch ) {
+						onSearch( event, event.target.value );
 					}
-				}}
-				onKeyUp={(event) => {
-					if ('function' === typeof onKeyUp) {
-						onKeyUp(event);
+				} }
+				onKeyUp={ ( event ) => {
+					if ( 'function' === typeof onKeyUp ) {
+						onKeyUp( event );
 					}
-				}}
+				} }
 			/>
-			<button className="stc-search-icon">{ICONS.search}</button>
+			<button className="stc-search-icon">{ ICONS.search }</button>
 			<button
 				className="stc-cross-icon"
-				onClick={(event) => {
-					if ('function' === typeof onSearch) {
-						onSearch(event, '');
+				onClick={ ( event ) => {
+					if ( 'function' === typeof onSearch ) {
+						onSearch( event, '' );
 						document
-							.getElementsByClassName('stc-search-input')[0]
+							.getElementsByClassName( 'stc-search-input' )[ 0 ]
 							.focus();
 					}
-				}}
+				} }
 			>
-				{ICONS.cross}
+				{ ICONS.cross }
 			</button>
 		</div>
 	);
 };
 
-export default memo(Search);
+export default memo( Search );
