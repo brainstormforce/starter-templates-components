@@ -1,7 +1,7 @@
 // External Dependencies.
 import React, { memo, useEffect, useCallback, useRef } from 'react';
-import { __ } from '@wordpress/i18n';
 import { useDebouncedCallback } from 'use-debounce';
+import { __ } from '@wordpress/i18n';
 
 // Internal Dependencies.
 import './style.scss';
