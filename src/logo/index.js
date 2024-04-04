@@ -50,7 +50,7 @@ const Logo = ( { className, text, src, alt, onClick, href, extraText } ) => {
 				) : null }
 			</span>
 			{ extraText && (
-				<span className="stc-extra-text">{ extraText} </span>
+				<span className="stc-extra-text">{ extraText } </span>
 			) }
 		</>
 	);
