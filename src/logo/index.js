@@ -12,7 +12,8 @@ const Logo = ( { className, text, src, alt, onClick, href, extraText } ) => {
 	return (
 		<>
 			<span
-				className={ `stc-logo ${ className ? className : '' }` }
+				className={ `stc-logo ${ className ? className : '' }${extraText ? 'stc-extra-text' : ''}` }
+				{ ...( extraText ? { 'data-extraText': extraText } : {} ) }
 				onClick={ ( event ) => {
 					if ( 'function' === typeof onClick ) {
 						onClick( event );
@@ -49,9 +50,6 @@ const Logo = ( { className, text, src, alt, onClick, href, extraText } ) => {
 					</div>
 				) : null }
 			</span>
-			{ extraText && (
-				<span className="stc-extra-text">{ extraText } </span>
-			) }
 		</>
 	);
 };
