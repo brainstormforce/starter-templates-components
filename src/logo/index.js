@@ -10,49 +10,47 @@ const Logo = ( { className, text, src, alt, onClick, href, extraText } ) => {
 	}
 
 	return (
-		<>
-			<span
-				className={ `stc-logo ${ className ? className : '' }${
-					extraText ? 'stc-extra-text' : ''
-				}` }
-				{ ...( extraText ? { 'data-extraText': extraText } : {} ) }
-				onClick={ ( event ) => {
-					if ( 'function' === typeof onClick ) {
-						onClick( event );
-					}
-				} }
-			>
-				{ src ? (
-					<>
-						{ href ? (
-							<a
-								href={ href }
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<img
-									src={ src }
-									className="stc-logo-image"
-									alt={ alt }
-								/>
-							</a>
-						) : (
+		<span
+			className={ `stc-logo ${ className ? className : '' }${
+				extraText ? 'stc-extra-text' : ''
+			}` }
+			{ ...( extraText ? { 'data-extraText': extraText } : {} ) }
+			onClick={ ( event ) => {
+				if ( 'function' === typeof onClick ) {
+					onClick( event );
+				}
+			} }
+		>
+			{ src ? (
+				<>
+					{ href ? (
+						<a
+							href={ href }
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							<img
 								src={ src }
 								className="stc-logo-image"
 								alt={ alt }
 							/>
-						) }
-					</>
-				) : null }
+						</a>
+					) : (
+						<img
+							src={ src }
+							className="stc-logo-image"
+							alt={ alt }
+						/>
+					) }
+				</>
+			) : null }
 
-				{ text ? (
-					<div className="stc-logo-text" alt={ alt }>
-						{ text }
-					</div>
-				) : null }
-			</span>
-		</>
+			{ text ? (
+				<div className="stc-logo-text" alt={ alt }>
+					{ text }
+				</div>
+			) : null }
+		</span>
 	);
 };
 
