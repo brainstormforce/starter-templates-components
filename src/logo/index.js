@@ -4,14 +4,17 @@ import React from 'react';
 // Internal Dependencies.
 import './style.scss';
 
-const Logo = ( { className, text, src, alt, onClick, href } ) => {
+const Logo = ( { className, text, src, alt, onClick, href, extraText } ) => {
 	if ( ! text && ! src ) {
 		return '';
 	}
 
 	return (
 		<span
-			className={ `stc-logo ${ className ? className : '' }` }
+			className={ `stc-logo ${ className ? className : '' }${
+				extraText ? 'stc-extra-text' : ''
+			}` }
+			{ ...( extraText ? { 'data-extraText': extraText } : {} ) }
 			onClick={ ( event ) => {
 				if ( 'function' === typeof onClick ) {
 					onClick( event );

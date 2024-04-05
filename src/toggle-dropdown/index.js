@@ -13,6 +13,7 @@ const ToggleDropdown = ( {
 	value,
 	onClick,
 	icon,
+	dismissAiPopup,
 } ) => {
 	const [ state, setState ] = useState( {
 		option: {
@@ -65,6 +66,7 @@ const ToggleDropdown = ( {
 			<div
 				className="stc-toggle-dropdown-selected"
 				onClick={ () => {
+					dismissAiPopup();
 					setToggle( ! toggle );
 				} }
 			>
@@ -113,6 +115,7 @@ const ToggleDropdown = ( {
 										<Logo
 											text={ option.title }
 											src={ option.image }
+											extraText={ option.extraText }
 										/>
 									) : (
 										option.title
