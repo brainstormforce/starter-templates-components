@@ -119,7 +119,7 @@
     fill: var( --stc-color-heading );
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
 
     .stc-mega-menu {
         display: flex;
@@ -201,7 +201,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .stc-mega-menu-item-title {
         font-weight: var( --stc-font-weight-bold );
         font-size: var( --stc-font-size-m );
