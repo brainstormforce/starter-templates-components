@@ -13,7 +13,7 @@
     display: none;;
 }
 
-.stc-mega-menu-group {
+.stc-mega-menu-group, .stc-mega-menu-more-group {
     background: var( --stc-color-white );
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 var(--stc-border-radius-4) var(--stc-border-radius-4);
@@ -33,7 +33,7 @@
     position: relative;
     white-space: nowrap;
 
-    &:hover > .stc-mega-menu-group {
+    &:hover > .stc-mega-menu-group, &:hover > .stc-mega-menu-more-group {
         visibility: visible;
         opacity: 1;
     }
@@ -44,7 +44,16 @@
     
 }
 
-.stc-mega-menu-section-title {
+.stc-mega-more-menu-section {
+    position: relative;
+    white-space: nowrap;
+    &:hover > .stc-mega-menu-group {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.stc-mega-menu-section-title, .stc-mega-more-menu-section-title {
     font-weight: 600;
     font-size: var(--stc-font-size-xs);
     line-height: var(--stc-font-line-height-xs);
@@ -101,6 +110,11 @@
     }
 }
 
+.stc-mega-more-menu-item-title {
+    svg {
+        transform: rotate(270deg);
+    }
+}
 .stc-mega-menu-item-active svg {
     fill: var( --stc-color-heading );
 }
@@ -112,12 +126,54 @@
         position: relative;
     }
 
-    .stc-mega-menu-group {
+    .stc-mega-menu-group, .stc-mega-menu-more-group {
         position: absolute;
         top: 100%;
         opacity: 0;
         visibility: hidden;
         width: 230px;
+    }
+
+    .stc-mega-menu-more-group {
+        width: 192px;
+        padding: 4px;
+        border-radius: 6px;
+        background: #FFFFFF;
+        border: 1px solid #D8DFE9;
+        box-shadow: 0px 10px 15px -3px #0000001A;
+    }
+    .stc-mega-more-menu-section{
+        padding: 6px 8px 6px 10px;
+        border-radius: 4px;
+        &:hover {
+            background: #F6FAFE;
+            width: 100%;
+        }
+        .stc-mega-more-menu-item-title {
+            font-size: 14px;
+            line-height: 20px;
+        }
+    }
+    .stc-more-group {
+        width: 168px;
+        border-radius: 6px;
+        background: #FFFFFF;
+        border: 1px solid #D8DFE9;
+        box-shadow: 0px 10px 15px -3px #0000001A;
+        left: 160px;
+        top: -22px;
+        padding: 0;
+        .stc-mega-menu-section {
+            border-bottom: 1px solid #D8DFE9;
+            width: 100%;
+            .stc-mega-menu-section-title, .stc-mega-menu-child-item {
+                padding: 6px 8px 6px 10px;
+                border-radius: 4px;
+                margin-bottom: 0px;
+                font-size: 14px;
+                line-height: 20px;
+            }
+        }
     }
 
     .stc-mega-menu-group-col-2,
