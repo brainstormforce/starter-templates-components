@@ -9,9 +9,9 @@ const MegaMenu = ( { options, parent, menu, onClick } ) => {
 	useEffect( () => {
 		const updateVisibleOptions = () => {
 			const width = window.innerWidth;
-			if ( width >= 1116 ) {
+			if ( width >= 1181 ) {
 				setVisibleOptions( options );
-			} else if ( width < 1116 && width >= 1025 ) {
+			} else if ( width < 1181 && width >= 1025 ) {
 				setVisibleOptions( options.slice( 0, 5 ) );
 			} else if ( width < 1025 && width >= 950 ) {
 				setVisibleOptions( options.slice( 0, 4 ) );
