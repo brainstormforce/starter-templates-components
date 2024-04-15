@@ -66,8 +66,10 @@ const ToggleDropdown = ( {
 			<div
 				className="stc-toggle-dropdown-selected"
 				onClick={ () => {
-					dismissAiPopup();
 					setToggle( ! toggle );
+					if ( typeof dismissAiPopup === 'function' ) {
+						dismissAiPopup();
+					}
 				} }
 			>
 				{ label && '' === state.option.title ? (
