@@ -6,9 +6,13 @@ import { sprintf, __ } from '@wordpress/i18n';
 // Internal dependencies
 import './style.scss';
 
-const NoResultFound = ( { searchTerm } ) => {
-	if ( ! searchTerm ) {
-		return null;
+const NoResultFound = ( { searchTerm, siteCount } ) => {
+	if ( ! searchTerm && ! siteCount ) {
+		return (
+			<div className="stc-sites-no-results">
+				<h4>{ __( 'No Sites found!' ) }</h4>
+			</div>
+		);
 	}
 
 	return (
