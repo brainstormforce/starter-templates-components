@@ -79,6 +79,18 @@ const Grid = ( {
 							) }
 
 							<div className="stc-grid-item-header">
+								<div className="stc-page-builders">
+									{ item.available_page_builders.includes(
+										'gutenberg'
+									)
+										? ICONS.blockeditor
+										: '' }
+									{ item.available_page_builders.includes(
+										'elementor'
+									)
+										? ICONS.elementor
+										: '' }
+								</div>
 								<div className="stc-grid-item-title">
 									{ decodeEntities( item.title ) }
 									{ enableNewUi &&
