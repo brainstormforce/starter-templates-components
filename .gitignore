@@ -3,3 +3,4 @@
 /vendor/
 .DS_Store
 src/.DS_Store
+config.bat
