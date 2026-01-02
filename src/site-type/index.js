@@ -16,10 +16,6 @@ const SiteType = ( { value, onClick } ) => {
 					id: 'agency-mini',
 					title: __( 'Premium' ),
 				},
-				{
-					id: 'signature',
-					title: __( 'Signature' ),
-				},
 			] }
 			onClick={ ( event, type ) => {
 				if ( 'function' === typeof onClick ) {
