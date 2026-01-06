@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v2
       with:
         submodules: recursive
-        token: ${{ secrets.PRIVATE_ACCESS_TOKEN }}
+        token: ${{ secrets.BSF_PRODUCTS_REPO_TOKEN }}
         ref: ${{ github.event.pull_request.head.ref }}
 
     - name: Use Node.js 18.x
@@ -29,7 +29,7 @@ jobs:
         cache: 'npm'
 
     - name: Set composer token
-      run: composer config github-oauth.github.com ${{ secrets.PRIVATE_ACCESS_TOKEN }} 
+      run: composer config github-oauth.github.com ${{ secrets.BSF_PRODUCTS_REPO_TOKEN }} 
 
     - name: Composer Install
       uses: ramsey/composer-install@v1
