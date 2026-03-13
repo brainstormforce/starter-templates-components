@@ -3,3 +3,6 @@
 /vendor/
 .DS_Store
 src/.DS_Store
+
+# Claude Code
+.claude/settings.local.json
