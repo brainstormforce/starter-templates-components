@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "autoCompactThreshold": 50,
+
+  "permissions": {
+    "allow": [
+      "Bash(npm run start)",
+      "Bash(npm run build)",
+      "Bash(npm run lint:js)",
+      "Bash(npm run lint:js:fix)",
+      "Bash(npm run lint:css)",
+      "Bash(npm run format:js)",
+      "Bash(npm run check-engines)",
+      "Bash(npm run check-licenses)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git branch *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Bash(rm -rf *)",
+      "Bash(git push * --force)",
+      "Bash(git add .env)"
+    ]
+  },
+
+  "spinnerVerbs": {
+    "mode": "append",
+    "verbs": [
+      "Analyzing patterns",
+      "Reviewing architecture",
+      "Running checks",
+      "Scanning for issues",
+      "Validating structure"
+    ]
+  }
+}

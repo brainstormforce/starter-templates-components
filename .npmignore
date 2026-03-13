@@ -1,3 +1,6 @@
 /src
 .babelrc
 webpack.config.js
+.claude
+CLAUDE.md
+internal-docs
