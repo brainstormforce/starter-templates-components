@@ -30,7 +30,7 @@
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
-    "@wordpress/scripts": "^26.19.0",
+    "@wordpress/scripts": "^33.0.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.3.0",
     "sass": "^1.32.0",
@@ -39,7 +39,7 @@
     "svg-url-loader": "^7.1.1",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
-    "@wordpress/eslint-plugin": "^9.3.0",
+    "@wordpress/eslint-plugin": "^25.7.0",
     "prettier": "npm:wp-prettier@^2.8.5",
     "wp-prettier": "^2.8.5"
   },
